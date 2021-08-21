@@ -11,9 +11,12 @@ import {
 } from "react-native";
 import BanglaClassObservationScreen from "./components/BanglaClassObservationScreen";
 import HomeScreen from "./components/HomeScreen";
+import LoginScreen from "./components/LoginScreen";
+import RegistrationScreen from "./components/RegistrationScreen";
+import LibraryManagementObservationScreen from "./components/LibraryManagementObservationScreen";
 
 export default class App extends React.Component {
   render() {
-    return <BanglaClassObservationScreen />;
+    return <LibraryManagementObservationScreen />;
   }
 }

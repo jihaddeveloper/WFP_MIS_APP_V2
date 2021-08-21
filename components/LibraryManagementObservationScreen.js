@@ -1,7 +1,7 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 17/08/2021
 //  Modify Date: 21/08/2021
-//  Description: Bangla class observation component
+//  Description: Library management observation screen component
 
 import React from "react";
 import {
@@ -26,7 +26,7 @@ import {
   Cell,
 } from "react-native-table-component";
 
-export default class BanglaClassObservationScreen extends React.Component {
+export default class LibraryManagementObservationScreen extends React.Component {
   state = {
     checked: false,
   };
@@ -35,10 +35,6 @@ export default class BanglaClassObservationScreen extends React.Component {
     const { checked } = this.state;
     return (
       <View style={styles.container}>
-        <Image
-          style={styles.logoMain}
-          source={require("../assets/rtr.png")}
-        ></Image>
         <Text
           style={{
             color: "blue",
@@ -50,7 +46,8 @@ export default class BanglaClassObservationScreen extends React.Component {
           McGovern-Dole International Food for Education and Child Nutrition
           Program
         </Text>
-        <Text style={{ fontSize: 20 }}>বাংলা ক্লাস পর্যবেক্ষণ ফরম</Text>
+        <Text style={{ fontSize: 20 }}>শ্রেণীকক্ষ পাঠাগার পর্যবেক্ষণ ফরম</Text>
+        <Text style={{ fontSize: 20 }}>(এলএফ-দের জন্য)</Text>
 
         <ScrollView>
           <View style={{ padding: 10 }}>
@@ -84,7 +81,7 @@ export default class BanglaClassObservationScreen extends React.Component {
             </View>
             <View style={{ flexDirection: "row", padding: 10 }}>
               <View style={{ flex: 1 }}>
-                <Text>পরিদর্শক এর নাম:</Text>
+                <Text>পরিদর্শনকারীর নাম:</Text>
                 <TextInput
                   placeholder="..............."
                   style={{ justifyContent: "flex-start" }}
@@ -100,7 +97,7 @@ export default class BanglaClassObservationScreen extends React.Component {
             </View>
             <View style={{ flexDirection: "row", padding: 10 }}>
               <View style={{ flex: 1 }}>
-                <Text>শ্রেণি শিক্ষকের নাম:</Text>
+                <Text>লাইব্রেরি শিক্ষকের নাম:</Text>
                 <TextInput
                   placeholder="..............."
                   style={{ justifyContent: "flex-start" }}
@@ -131,7 +128,8 @@ export default class BanglaClassObservationScreen extends React.Component {
               </View>
               <View style={{ flex: 1 }}>
                 <Text>
-                  সংশ্লিষ্ট বিষয়ে প্রশিক্ষণপ্রাপ্ত শিক্ষক পাঠ পরিচালনা করছেন
+                  সংশ্লিষ্ট বিষয়ে প্রশিক্ষণপ্রাপ্ত শিক্ষক পাঠাগার ব্যবস্থপনা
+                  দায়িত্বে আছেন ঃ
                 </Text>
                 <View style={{ flexDirection: "row" }}>
                   <View style={{ flex: 1 }}>
@@ -157,94 +155,18 @@ export default class BanglaClassObservationScreen extends React.Component {
             </View>
             <View style={{ flexDirection: "row", padding: 10 }}>
               <View style={{ flex: 1 }}>
-                <View style={{ flexDirection: "row" }}>
-                  <View style={{ flex: 1 }}>
-                    <Text>শ্রেণী:</Text>
-                    <TextInput
-                      placeholder="..............."
-                      style={{ justifyContent: "flex-start" }}
-                    />
-                    <Text>শাখা:</Text>
-                    <TextInput
-                      placeholder="..............."
-                      style={{ justifyContent: "flex-start" }}
-                    />
-                  </View>
-                  <View style={{ flex: 1 }}>
-                    <Text>ক্লাস শুরুর সময়:</Text>
-                    <TextInput
-                      placeholder="..............."
-                      style={{ justifyContent: "flex-start" }}
-                    />
-                    <Text>ক্লাস শেষের সময়:</Text>
-                    <TextInput
-                      placeholder="..............."
-                      style={{ justifyContent: "flex-start" }}
-                    />
-                  </View>
-                </View>
-              </View>
-              <View style={{ flex: 1 }}>
-                <Text>পাঠ নং/ পাঠের নাম:</Text>
+                <Text>শ্রেণী:</Text>
                 <TextInput
                   placeholder="..............."
-                  style={{ justifyContent: "flex-end" }}
+                  style={{ justifyContent: "flex-start" }}
                 />
-                <Text>দিন:</Text>
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text>শাখা:</Text>
                 <TextInput
                   placeholder="..............."
-                  style={{ justifyContent: "flex-end" }}
+                  style={{ justifyContent: "flex-start" }}
                 />
-              </View>
-            </View>
-            <View style={{ flexDirection: "row", padding: 10 }}>
-              <View style={{ flex: 1 }}>
-                <Text>ভর্তিকৃত শিশুর সংখ্যা:</Text>
-                <View style={{ flexDirection: "row" }}>
-                  <View style={{ flex: 1 }}>
-                    <Text>মেয়ে ঃ</Text>
-                    <Text>ছেলে ঃ</Text>
-                    <Text>মোট ঃ</Text>
-                  </View>
-                  <View style={{ flex: 1 }}>
-                    <TextInput
-                      placeholder="........"
-                      style={{ justifyContent: "flex-end" }}
-                    />
-                    <TextInput
-                      placeholder="........"
-                      style={{ justifyContent: "flex-end" }}
-                    />
-                    <TextInput
-                      placeholder="........"
-                      style={{ justifyContent: "flex-end" }}
-                    />
-                  </View>
-                </View>
-              </View>
-              <View style={{ flex: 1 }}>
-                <Text>উপস্থিত শিশুর সংখ্যা :</Text>
-                <View style={{ flexDirection: "row" }}>
-                  <View style={{ flex: 1 }}>
-                    <Text>মেয়ে ঃ</Text>
-                    <Text>ছেলে ঃ</Text>
-                    <Text>মোট ঃ</Text>
-                  </View>
-                  <View style={{ flex: 1 }}>
-                    <TextInput
-                      placeholder="........"
-                      style={{ justifyContent: "flex-end" }}
-                    />
-                    <TextInput
-                      placeholder="........"
-                      style={{ justifyContent: "flex-end" }}
-                    />
-                    <TextInput
-                      placeholder="........"
-                      style={{ justifyContent: "flex-end" }}
-                    />
-                  </View>
-                </View>
               </View>
             </View>
           </View>
@@ -258,19 +180,19 @@ export default class BanglaClassObservationScreen extends React.Component {
                   হলেই কেবল সম্পূর্ণ পাঠ পর্যবেক্ষণ করুন ।
                 </Text>
                 <Text style={{ padding: 5 }}>
-                  ২। সম্পূর্ণ পাঠ পর্যবেক্ষণ করুন তবে অগ্রাধিকার এরিয়ার ভিত্তিতে
-                  ভালো দিক ও সহায়তার ক্ষেত্রগুলা চিহ্নিত করুন ।
+                  ২। প্রধান ইনডিকেটরের অধীন সকল সাব-ইনডিকেটর হ্যাঁ হলে প্রধান
+                  ইনডিকেটরটি "হ্যাঁ" হবে ।
                 </Text>
                 <Text style={{ padding: 5 }}>
-                  ৩। বাংলা পাঠ উপস্থাপন সংক্রান্ত 2-3 টি ভালো দিক উল্লেখ করুন।
+                  ৩। পাঠাগার সংক্রান্ত 2-3 টি ভালো দিক উল্লেখ করুন।
                 </Text>
                 <Text style={{ padding: 5 }}>
-                  ৪। অগ্রাধিকার এরিয়ার ভিত্তিতে উপর ভিত্তিতে যে ১-২ টি
-                  ইনডিকেটরের উত্তর "না বা আংশিক" হয়েছে তার আলোকে সহায়তার জন্য
-                  অগ্রাধিকারভিত্তিক ইনডিকেটর উল্লেখ করুন
+                  ৪। প্রথম যে ২-৩ টি ইনডিকেটরের উত্তর "না" হয়েছে তার আলোকে
+                  সহায়তার জন্য অগ্রাধিকারভিত্তিক ইনডিকেটর উল্লেখ করুন
                 </Text>
                 <Text style={{ padding: 5 }}>
-                  ৫। বাংলা পাঠ উন্নতির জন্য শিক্ষকের সাথে 2-3 সূচক আলোচনা করুন।
+                  ৫। শ্রেণীকক্ষ পাঠাগারের সমস্যা নিয়ে সংশ্লিষ্ট লাইব্রেরি
+                  শিক্ষকের সাথে আলোচনা করুন।
                 </Text>
                 <Text style={{ padding: 5 }}>
                   ৬। রুমটোরিড থেকে কোনো পদক্ষেপ গ্রহণের প্রয়োজন হলে উল্লেখ করুন
@@ -279,7 +201,7 @@ export default class BanglaClassObservationScreen extends React.Component {
               </View>
               <View style={{ flex: 1 }}>
                 <Text style={{ justifyContent: "flex-end" }}>
-                  ফলো-আপ করার জন্য গত পরিদর্শন থেকে প্রাপ্ত ১-২ টি বিষয় উল্লেখ
+                  ফলো-আপ করার জন্য গত পরিদর্শন থেকে প্রাপ্ত ২-৩ টি বিষয় উল্লেখ
                   করুন যেখানে উন্নতি প্রয়োজন ছিল ঃ
                 </Text>
                 <View style={{ flexDirection: "row" }}>
@@ -312,52 +234,51 @@ export default class BanglaClassObservationScreen extends React.Component {
           </View>
 
           <View style={{ padding: 10 }}>
-            <Text style={styles.bigRedText}>ইনডিকেটর</Text>
+            <Text style={styles.bigRedText}>
+              ইনডিকেটর(প্রতিটি সাব-ইনডিকেটর "হ্যাঁ" হলে প্রধান ইনডিকেটর "হ্যাঁ"
+              হবে)
+            </Text>
             <View style={{ padding: 5 }}>
               <View style={{ flexDirection: "row" }}>
                 <View style={{ flex: 1, padding: 2 }}>
-                  <Text style={{ backgroundColor: "green" }}>ক্রমিক নং</Text>
+                  <Text style={{ backgroundColor: "#f5f5f5" }}>ক্রমিক নং</Text>
                 </View>
                 <View style={{ flex: 1, padding: 2 }}>
-                  <Text style={{ backgroundColor: "green" }}>ইনডিকেটর</Text>
+                  <Text style={{ backgroundColor: "#f5f5f5" }}>ইনডিকেটর</Text>
                 </View>
                 <View style={{ flex: 1, padding: 2 }}>
-                  <Text style={{ backgroundColor: "green" }}>
-                    অগ্রাধিকার এরিয়া
+                  <Text style={{ backgroundColor: "#f5f5f5" }}>হ্যা</Text>
+                </View>
+                <View style={{ flex: 1, padding: 2 }}>
+                  <Text style={{ backgroundColor: "#f5f5f5" }}>না</Text>
+                </View>
+                <View style={{ flex: 1, padding: 2 }}>
+                  <Text style={{ backgroundColor: "#f5f5f5" }}>
+                    "না" হলে করনীয়
                   </Text>
                 </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <Text style={{ backgroundColor: "green" }}>হ্যা</Text>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <Text style={{ backgroundColor: "green" }}>না</Text>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <Text style={{ backgroundColor: "green" }}>আংশিক</Text>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <Text style={{ backgroundColor: "green" }}>মন্তব্য</Text>
-                </View>
-              </View>
-              <View style={{ flexDirection: "row" }}>
-                <Text style={{ backgroundColor: "green" }}>
-                  পাঠ চলাকালীন (পাঠ উপস্থাপনের শুরু থেকে দেখতে হবে এবং সার্বিক
-                  অংশের সূচকগুলা শেষে দেখতে হবে ।)
-                </Text>
               </View>
               <View style={{ flexDirection: "row" }}>
                 <View style={{ flex: 1, padding: 2 }}>
                   <Text>১.</Text>
                 </View>
                 <View style={{ flex: 1, padding: 2 }}>
-                  <Text>
-                    শিক্ষক ধ্বনি সচেতনাতার কাজে ব্যবহৃত সকল বর্ণ ও শব্দের ধ্বনি
-                    সঠিকভাবে উচ্চারণ করেছেন এবং শিক্ষাত্রিদের চর্চা করার সুযোগ
-                    দিয়েছেন ।
-                  </Text>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <Text>২</Text>
+                  <View>
+                    <Text style={{ fontSize: 18, fontWeight: "bold" }}>
+                      বিদ্যালয়ের সংশ্লিষ্ট শিক্ষক পাঠাগার ব্যবস্থাপনা বিষয়ে
+                      প্রশিক্ষণে অংশগ্রহণ করেছেন
+                    </Text>
+                  </View>
+                  <View>
+                    <Text style={{ fontSize: 16 }}>
+                      ১.১ পাঠাগার বাবস্থাপনার জন্য পর্যবেক্ষণকৃত শ্রেণিতে একজন
+                      প্রশিক্ষণ প্রাপ্ত লাইব্রেরি শিক্ষক দায়িত্ব প্রাপ্ত আছেন
+                    </Text>
+                    <Text style={{ fontSize: 16 }}>
+                      ১.২বিদ্যালয়ের প্রধান শিক্ষক রুম টু রিড পরিচালিত পাঠাগার
+                      ব্যবস্থাপনা প্রশিক্ষণে অংশগ্রহণ করেছেন
+                    </Text>
+                  </View>
                 </View>
                 <View style={{ flex: 1, padding: 2 }}>
                   <Checkbox
@@ -378,19 +299,10 @@ export default class BanglaClassObservationScreen extends React.Component {
                   <Text>না</Text>
                 </View>
                 <View style={{ flex: 1, padding: 2 }}>
-                  <Checkbox
-                    status={checked ? "checked" : "unchecked"}
-                    onPress={() => {
-                      this.setState({ checked: !checked });
-                    }}
-                  />
-                  <Text>আংশিক</Text>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 40, padding: 5 }}
-                    placeholder="........."
-                  ></TextInput>
+                  <Text>
+                    এলপিও-কে অবহিত করুন এবং রুম টু রিডের সহায়তা প্রয়োজন হলে
+                    মাসিক প্রতিবেদনে উল্লেখ করুন
+                  </Text>
                 </View>
               </View>
               <View style={{ flexDirection: "row" }}>
@@ -925,364 +837,7 @@ export default class BanglaClassObservationScreen extends React.Component {
           </View>
 
           <View style={{ padding: 10 }}>
-            <Text style={{ backgroundColor: "green" }}>
-              শ্রেণি শিক্ষকের সাথে আলোচনার জন্য গুরুত্বপূর্ণ কিছু বিষয় ঃ
-            </Text>
-            <View style={{ padding: 5 }}>
-              <View style={{ flexDirection: "row" }}>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <Text>
-                    শিক্ষক ভালো করেছেন এমন ২/৩ টি সূচক ( অগ্রুধিকার এরিয়ায়র
-                    নম্বর ) উল্লেখ করুন ।
-                  </Text>
-                </View>
-              </View>
-              <View style={{ flexDirection: "row" }}>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 40, padding: 5 }}
-                    placeholder="১. ....................."
-                  ></TextInput>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 40, padding: 5 }}
-                    placeholder="২. ....................."
-                  ></TextInput>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 40, padding: 5 }}
-                    placeholder="৩. ....................."
-                  ></TextInput>
-                </View>
-              </View>
-              <View style={{ flexDirection: "row" }}>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <Text>
-                    অগ্রাধিকারভিত্তিতে শিক্ষককে তার নিজস্ব উন্নয়নের জন্য যে ১/২
-                    টি সূচক (এরিয়ার নম্বর) চিহ্নিত করেছেন তা উল্লেখ করুন এবং
-                    তিনি তার উন্নয়ন এ কিভাবে এটি করবেন সেটি উল্লেখ করুন ।
-                  </Text>
-                </View>
-              </View>
-              <View style={{ flexDirection: "row" }}>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 40, padding: 5 }}
-                    placeholder="১. ...................................."
-                  ></TextInput>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 40, padding: 5 }}
-                    placeholder="২. ...................................."
-                  ></TextInput>
-                </View>
-              </View>
-              <View style={{ flexDirection: "row" }}>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <Text>কিভাবে করবেন ঃ</Text>
-                </View>
-              </View>
-              <View style={{ flexDirection: "row" }}>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 80, padding: 5 }}
-                    placeholder="১. ...................................................................................."
-                  ></TextInput>
-                </View>
-              </View>
-              <View style={{ flexDirection: "row" }}>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 80, padding: 5 }}
-                    placeholder="২. ...................................................................................."
-                  ></TextInput>
-                </View>
-              </View>
-              <View style={{ flexDirection: "row" }}>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <Text>
-                    যে কাজ গুলো করার জন্য শ্রেণি শিক্ষক একমত হয়েছেন সেটি/ সেগুলো
-                    উল্লেখ করুন ।
-                  </Text>
-                </View>
-              </View>
-              <View style={{ flexDirection: "row" }}>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 60, padding: 5 }}
-                    placeholder="১. ...................................................................................."
-                  ></TextInput>
-                </View>
-              </View>
-              <View style={{ flexDirection: "row" }}>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 60, padding: 5 }}
-                    placeholder="২. ...................................................................................."
-                  ></TextInput>
-                </View>
-              </View>
-            </View>
-          </View>
-
-          <View style={{ padding: 10 }}>
-            <Text style={styles.bigRedText}>মূল্যায়ন ঃ </Text>
-            <View style={{ padding: 5 }}>
-              <View style={{ flexDirection: "row" }}>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <Text style={{ backgroundColor: "green" }}>
-                    দৈবচয়ন পদ্ধতিতে ৫ জন শিক্ষার্থী নির্বাচন করুন এবং সংক্ষিপ্ত
-                    মূল্যায়ন করুন ঃ
-                  </Text>
-                </View>
-              </View>
-              <View style={{ flexDirection: "row" }}>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <Text>
-                    মূল্যায়নের জন্য নির্বাচিত বর্ণ, শব্দ অথবা বাক্য এখানে লিখুন
-                    ঃ{" "}
-                  </Text>
-                </View>
-              </View>
-              <View style={{ flexDirection: "row" }}>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 120, padding: 5 }}
-                    placeholder=" ....................
-                    ..................................
-                    ..................................
-                    .................................."
-                  ></TextInput>
-                </View>
-              </View>
-              <View style={{ flexDirection: "row" }}>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <Text>শিক্ষার্থীর নাম ঃ</Text>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 20, padding: 5 }}
-                    placeholder="......"
-                  ></TextInput>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 20, padding: 5 }}
-                    placeholder="......"
-                  ></TextInput>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 20, padding: 5 }}
-                    placeholder="......"
-                  ></TextInput>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 20, padding: 5 }}
-                    placeholder="......"
-                  ></TextInput>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 20, padding: 5 }}
-                    placeholder="......"
-                  ></TextInput>
-                </View>
-              </View>
-              <View style={{ flexDirection: "row" }}>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <Text>সঠিক বলেছে ঃ</Text>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 20, padding: 5 }}
-                    placeholder="......"
-                  ></TextInput>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 20, padding: 5 }}
-                    placeholder="......"
-                  ></TextInput>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 20, padding: 5 }}
-                    placeholder="......"
-                  ></TextInput>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 20, padding: 5 }}
-                    placeholder="......"
-                  ></TextInput>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 20, padding: 5 }}
-                    placeholder="......"
-                  ></TextInput>
-                </View>
-              </View>
-              <View style={{ flexDirection: "row" }}>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <Text>ভুল বলেছে ঃ</Text>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 20, padding: 5 }}
-                    placeholder="......"
-                  ></TextInput>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 20, padding: 5 }}
-                    placeholder="......"
-                  ></TextInput>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 20, padding: 5 }}
-                    placeholder="......"
-                  ></TextInput>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 20, padding: 5 }}
-                    placeholder="......"
-                  ></TextInput>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 20, padding: 5 }}
-                    placeholder="......"
-                  ></TextInput>
-                </View>
-              </View>
-              <View style={{ flexDirection: "row" }}>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <Text>মোট সংখ্যা ঃ</Text>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 20, padding: 5 }}
-                    placeholder="......"
-                  ></TextInput>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 20, padding: 5 }}
-                    placeholder="......"
-                  ></TextInput>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 20, padding: 5 }}
-                    placeholder="......"
-                  ></TextInput>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 20, padding: 5 }}
-                    placeholder="......"
-                  ></TextInput>
-                </View>
-                <View style={{ flex: 1, padding: 2 }}>
-                  <TextInput
-                    style={{ height: 20, padding: 5 }}
-                    placeholder="......"
-                  ></TextInput>
-                </View>
-              </View>
-            </View>
-          </View>
-
-          <View style={{ padding: 10 }}>
             <Text>Hello World</Text>
-          </View>
-
-          <View style={{ padding: 10 }}>
-            <Text style={styles.bigRedText}>Visitor Detail</Text>
-            <View style={{ flexDirection: "row" }}>
-              <View style={{ flex: 1, padding: 2 }}>
-                <View style={{ padding: 5 }}>
-                  <View style={{ flexDirection: "row" }}>
-                    <View style={{ flex: 1, padding: 2 }}>
-                      <Text>Name of LF</Text>
-                    </View>
-                    <View style={{ flex: 1, padding: 2 }}>
-                      <TextInput
-                        style={{ height: 40, padding: 5 }}
-                        placeholder=" ......"
-                      ></TextInput>
-                    </View>
-                  </View>
-                  <View style={{ flexDirection: "row" }}>
-                    <View style={{ flex: 1, padding: 2 }}>
-                      <Text>Sign</Text>
-                    </View>
-                    <View style={{ flex: 1, padding: 2 }}>
-                      <TextInput
-                        style={{ height: 40, padding: 5 }}
-                        placeholder=" ......"
-                      ></TextInput>
-                    </View>
-                  </View>
-                  <View style={{ flexDirection: "row" }}>
-                    <View style={{ flex: 1, padding: 2 }}>
-                      <Text>Date</Text>
-                    </View>
-                    <View style={{ flex: 1, padding: 2 }}>
-                      <TextInput
-                        style={{ height: 40, padding: 5 }}
-                        placeholder=" ......"
-                      ></TextInput>
-                    </View>
-                  </View>
-                </View>
-              </View>
-              <View style={{ flex: 1, padding: 2 }}>
-                <View style={{ padding: 5 }}>
-                  <View style={{ flexDirection: "row" }}>
-                    <View style={{ flex: 1, padding: 2 }}>
-                      <Text>Name of LPO</Text>
-                    </View>
-                    <View style={{ flex: 1, padding: 2 }}>
-                      <TextInput
-                        style={{ height: 40, padding: 5 }}
-                        placeholder=" ......"
-                      ></TextInput>
-                    </View>
-                  </View>
-                  <View style={{ flexDirection: "row" }}>
-                    <View style={{ flex: 1, padding: 2 }}>
-                      <Text>Sign</Text>
-                    </View>
-                    <View style={{ flex: 1, padding: 2 }}>
-                      <TextInput
-                        style={{ height: 40, padding: 5 }}
-                        placeholder=" ......"
-                      ></TextInput>
-                    </View>
-                  </View>
-                  <View style={{ flexDirection: "row" }}>
-                    <View style={{ flex: 1, padding: 2 }}>
-                      <Text>Date</Text>
-                    </View>
-                    <View style={{ flex: 1, padding: 2 }}>
-                      <TextInput
-                        style={{ height: 40, padding: 5 }}
-                        placeholder=" ......"
-                      ></TextInput>
-                    </View>
-                  </View>
-                </View>
-              </View>
-            </View>
           </View>
         </ScrollView>
       </View>
