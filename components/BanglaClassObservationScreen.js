@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 17/08/2021
-//  Modify Date: 21/08/2021
+//  Modify Date: 25/08/2021
 //  Description: Bangla class observation component
 
 import React from "react";
@@ -1202,17 +1202,13 @@ export default class BanglaClassObservationScreen extends React.Component {
           </View>
 
           <View style={{ padding: 10 }}>
-            <Text>Hello World</Text>
-          </View>
-
-          <View style={{ padding: 10 }}>
-            <Text style={styles.bigRedText}>Visitor Detail</Text>
+            <Text style={styles.bigRedText}>পরিদর্শক এর তথ্য ঃ </Text>
             <View style={{ flexDirection: "row" }}>
               <View style={{ flex: 1, padding: 2 }}>
                 <View style={{ padding: 5 }}>
                   <View style={{ flexDirection: "row" }}>
                     <View style={{ flex: 1, padding: 2 }}>
-                      <Text>Name of LF</Text>
+                      <Text>এল এফ এর নাম ঃ </Text>
                     </View>
                     <View style={{ flex: 1, padding: 2 }}>
                       <TextInput
@@ -1223,7 +1219,7 @@ export default class BanglaClassObservationScreen extends React.Component {
                   </View>
                   <View style={{ flexDirection: "row" }}>
                     <View style={{ flex: 1, padding: 2 }}>
-                      <Text>Sign</Text>
+                      <Text>স্বাক্ষর ঃ </Text>
                     </View>
                     <View style={{ flex: 1, padding: 2 }}>
                       <TextInput
@@ -1234,7 +1230,7 @@ export default class BanglaClassObservationScreen extends React.Component {
                   </View>
                   <View style={{ flexDirection: "row" }}>
                     <View style={{ flex: 1, padding: 2 }}>
-                      <Text>Date</Text>
+                      <Text>তারিখ ঃ </Text>
                     </View>
                     <View style={{ flex: 1, padding: 2 }}>
                       <TextInput
@@ -1249,7 +1245,7 @@ export default class BanglaClassObservationScreen extends React.Component {
                 <View style={{ padding: 5 }}>
                   <View style={{ flexDirection: "row" }}>
                     <View style={{ flex: 1, padding: 2 }}>
-                      <Text>Name of LPO</Text>
+                      <Text>এল পিও এর নাম ঃ </Text>
                     </View>
                     <View style={{ flex: 1, padding: 2 }}>
                       <TextInput
@@ -1260,7 +1256,7 @@ export default class BanglaClassObservationScreen extends React.Component {
                   </View>
                   <View style={{ flexDirection: "row" }}>
                     <View style={{ flex: 1, padding: 2 }}>
-                      <Text>Sign</Text>
+                      <Text>স্বাক্ষর ঃ </Text>
                     </View>
                     <View style={{ flex: 1, padding: 2 }}>
                       <TextInput
@@ -1271,7 +1267,7 @@ export default class BanglaClassObservationScreen extends React.Component {
                   </View>
                   <View style={{ flexDirection: "row" }}>
                     <View style={{ flex: 1, padding: 2 }}>
-                      <Text>Date</Text>
+                      <Text>তারিখ ঃ </Text>
                     </View>
                     <View style={{ flex: 1, padding: 2 }}>
                       <TextInput
@@ -1300,6 +1296,7 @@ const styles = StyleSheet.create({
   },
   container: {
     alignItems: "center",
+    flex: 1,
   },
   logoMain: {
     height: 80,

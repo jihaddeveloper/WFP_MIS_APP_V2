@@ -14,9 +14,10 @@ import HomeScreen from "./components/HomeScreen";
 import LoginScreen from "./components/LoginScreen";
 import RegistrationScreen from "./components/RegistrationScreen";
 import LibraryManagementObservationScreen from "./components/LibraryManagementObservationScreen";
+import LibraryReadingActivitiesObservationScreen from "./components/LibraryReadingActivitiesObservationScreen";
 
 export default class App extends React.Component {
   render() {
-    return <LibraryManagementObservationScreen />;
+    return <LibraryReadingActivitiesObservationScreen />;
   }
 }

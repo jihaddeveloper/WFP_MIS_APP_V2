@@ -1,7 +1,7 @@
 //  Author: Mohammad Jihad Hossain
-//  Create Date: 17/08/2021
-//  Modify Date: 25/08/2021
-//  Description: Library management observation screen component
+//  Create Date: 25/08/2021
+//  Modify Date: 29/08/2021
+//  Description: Library reading activities observation screen component
 
 import React from "react";
 import {
@@ -26,7 +26,7 @@ import {
   Cell,
 } from "react-native-table-component";
 
-export default class LibraryManagementObservationScreen extends React.Component {
+export default class LibraryReadingActivitiesObservationScreen extends React.Component {
   state = {
     checked: false,
   };
@@ -46,11 +46,12 @@ export default class LibraryManagementObservationScreen extends React.Component 
           McGovern-Dole International Food for Education and Child Nutrition
           Program
         </Text>
-        <Text style={{ fontSize: 20 }}>শ্রেণীকক্ষ পাঠাগার পর্যবেক্ষণ ফরম</Text>
-        <Text style={{ fontSize: 20 }}>(এলএফ-দের জন্য)</Text>
+        <Text style={{ fontSize: 20, fontWeight: "bold" }}>
+          পড়ার ঘণ্টা কার্যক্রম পর্যবেক্ষণ ফরম
+        </Text>
 
         <View style={{ padding: 10, flex: 1 }}>
-          <ScrollView style={{}}>
+          <ScrollView style={{ flex: 1 }}>
             <View style={{ padding: 10 }}>
               <Text style={styles.bigRedText}>সাধারণ তথ্য:</Text>
               <View style={{ flexDirection: "row", padding: 10 }}>
@@ -82,7 +83,7 @@ export default class LibraryManagementObservationScreen extends React.Component 
               </View>
               <View style={{ flexDirection: "row", padding: 10 }}>
                 <View style={{ flex: 1 }}>
-                  <Text>পরিদর্শনকারীর নাম:</Text>
+                  <Text>পরিদর্শক এর নাম:</Text>
                   <TextInput
                     placeholder="..............."
                     style={{ justifyContent: "flex-start" }}
@@ -98,7 +99,7 @@ export default class LibraryManagementObservationScreen extends React.Component 
               </View>
               <View style={{ flexDirection: "row", padding: 10 }}>
                 <View style={{ flex: 1 }}>
-                  <Text>লাইব্রেরি শিক্ষকের নাম:</Text>
+                  <Text>শ্রেণি শিক্ষকের নাম:</Text>
                   <TextInput
                     placeholder="..............."
                     style={{ justifyContent: "flex-start" }}
@@ -129,8 +130,7 @@ export default class LibraryManagementObservationScreen extends React.Component 
                 </View>
                 <View style={{ flex: 1 }}>
                   <Text>
-                    সংশ্লিষ্ট বিষয়ে প্রশিক্ষণপ্রাপ্ত শিক্ষক পাঠাগার ব্যবস্থপনা
-                    দায়িত্বে আছেন ঃ
+                    সংশ্লিষ্ট বিষয়ে প্রশিক্ষণপ্রাপ্ত শিক্ষক পাঠ পরিচালনা করছেন
                   </Text>
                   <View style={{ flexDirection: "row" }}>
                     <View style={{ flex: 1 }}>
@@ -156,18 +156,94 @@ export default class LibraryManagementObservationScreen extends React.Component 
               </View>
               <View style={{ flexDirection: "row", padding: 10 }}>
                 <View style={{ flex: 1 }}>
-                  <Text>শ্রেণী:</Text>
-                  <TextInput
-                    placeholder="..............."
-                    style={{ justifyContent: "flex-start" }}
-                  />
+                  <View style={{ flexDirection: "row" }}>
+                    <View style={{ flex: 1 }}>
+                      <Text>শ্রেণী:</Text>
+                      <TextInput
+                        placeholder="..............."
+                        style={{ justifyContent: "flex-start" }}
+                      />
+                      <Text>শাখা:</Text>
+                      <TextInput
+                        placeholder="..............."
+                        style={{ justifyContent: "flex-start" }}
+                      />
+                    </View>
+                    <View style={{ flex: 1 }}>
+                      <Text>ক্লাস শুরুর সময়:</Text>
+                      <TextInput
+                        placeholder="..............."
+                        style={{ justifyContent: "flex-start" }}
+                      />
+                      <Text>ক্লাস শেষের সময়:</Text>
+                      <TextInput
+                        placeholder="..............."
+                        style={{ justifyContent: "flex-start" }}
+                      />
+                    </View>
+                  </View>
                 </View>
                 <View style={{ flex: 1 }}>
-                  <Text>শাখা:</Text>
+                  <Text>পাঠ নং/ পাঠের নাম:</Text>
                   <TextInput
                     placeholder="..............."
-                    style={{ justifyContent: "flex-start" }}
+                    style={{ justifyContent: "flex-end" }}
                   />
+                  <Text>দিন:</Text>
+                  <TextInput
+                    placeholder="..............."
+                    style={{ justifyContent: "flex-end" }}
+                  />
+                </View>
+              </View>
+              <View style={{ flexDirection: "row", padding: 10 }}>
+                <View style={{ flex: 1 }}>
+                  <Text>ভর্তিকৃত শিশুর সংখ্যা:</Text>
+                  <View style={{ flexDirection: "row" }}>
+                    <View style={{ flex: 1 }}>
+                      <Text>মেয়ে ঃ</Text>
+                      <Text>ছেলে ঃ</Text>
+                      <Text>মোট ঃ</Text>
+                    </View>
+                    <View style={{ flex: 1 }}>
+                      <TextInput
+                        placeholder="........"
+                        style={{ justifyContent: "flex-end" }}
+                      />
+                      <TextInput
+                        placeholder="........"
+                        style={{ justifyContent: "flex-end" }}
+                      />
+                      <TextInput
+                        placeholder="........"
+                        style={{ justifyContent: "flex-end" }}
+                      />
+                    </View>
+                  </View>
+                </View>
+                <View style={{ flex: 1 }}>
+                  <Text>উপস্থিত শিশুর সংখ্যা :</Text>
+                  <View style={{ flexDirection: "row" }}>
+                    <View style={{ flex: 1 }}>
+                      <Text>মেয়ে ঃ</Text>
+                      <Text>ছেলে ঃ</Text>
+                      <Text>মোট ঃ</Text>
+                    </View>
+                    <View style={{ flex: 1 }}>
+                      <TextInput
+                        placeholder="........"
+                        style={{ justifyContent: "flex-end" }}
+                      />
+                      <TextInput
+                        placeholder="........"
+                        style={{ justifyContent: "flex-end" }}
+                      />
+                      <TextInput
+                        placeholder="........"
+                        style={{ justifyContent: "flex-end" }}
+                      />
+                    </View>
+                  </View>
                 </View>
               </View>
             </View>
@@ -177,23 +253,25 @@ export default class LibraryManagementObservationScreen extends React.Component 
               <View style={{ flexDirection: "row", padding: 10 }}>
                 <View style={{ flex: 1 }}>
                   <Text style={{ padding: 5 }}>
-                    ১। সংশ্লিষ্ট বিষয়ে প্রশিক্ষণপ্রাপ্ত শিক্ষক কত্রিক পাঠ
+                    ১। সংশ্লিষ্ট বিষয়ে প্রশিক্ষণপ্রাপ্ত শিক্ষক কর্তৃক পাঠ
                     পরিচালিত হলেই কেবল সম্পূর্ণ পাঠ পর্যবেক্ষণ করুন ।
                   </Text>
                   <Text style={{ padding: 5 }}>
-                    ২। প্রধান ইনডিকেটরের অধীন সকল সাব-ইনডিকেটর হ্যাঁ হলে প্রধান
-                    ইনডিকেটরটি "হ্যাঁ" হবে ।
+                    ২। সম্পূর্ণ পাঠ পর্যবেক্ষণ করুন তবে প্রাইওরিটি এরিয়ার
+                    ভিত্তিতে ভালো দিক ও সহাওয়াতার ক্ষেত্রগুলা চিহ্নিত করুন ।
                   </Text>
                   <Text style={{ padding: 5 }}>
-                    ৩। পাঠাগার সংক্রান্ত 2-3 টি ভালো দিক উল্লেখ করুন।
+                    ৩। পড়ার ঘণ্টা কার্যক্রম সংক্রান্ত 2-3 টি ভালো দিক উল্লেখ
+                    করুন।
                   </Text>
                   <Text style={{ padding: 5 }}>
-                    ৪। প্রথম যে ২-৩ টি ইনডিকেটরের উত্তর "না" হয়েছে তার আলোকে
-                    সহায়তার জন্য অগ্রাধিকারভিত্তিক ইনডিকেটর উল্লেখ করুন
+                    ৪। প্রাইওরিটি এরিয়ার ভিত্তিতে যে ১-২ টি ইনডিকেটরের উত্তর
+                    "না" বা আংশিক হয়েছে তার আলোকে সহায়তার জন্য অগ্রাধিকারভিত্তিক
+                    ইনডিকেটর উল্লেখ করুন ।
                   </Text>
                   <Text style={{ padding: 5 }}>
-                    ৫। শ্রেণীকক্ষ পাঠাগারের সমস্যা নিয়ে সংশ্লিষ্ট লাইব্রেরি
-                    শিক্ষকের সাথে আলোচনা করুন।
+                    ৫। শ্রেণীকক্ষ পড়ার ঘণ্টা কার্যক্রমে উন্নয়ন যোগ্য ১/২ টি
+                    ইনডিকেটর নিয়ে সংশ্লিষ্ট শিক্ষকের সাথে আলোচনা করুন।
                   </Text>
                   <Text style={{ padding: 5 }}>
                     ৬। রুমটোরিড থেকে কোনো পদক্ষেপ গ্রহণের প্রয়োজন হলে উল্লেখ
@@ -202,7 +280,7 @@ export default class LibraryManagementObservationScreen extends React.Component 
                 </View>
                 <View style={{ flex: 1 }}>
                   <Text style={{ justifyContent: "flex-end" }}>
-                    ফলো-আপ করার জন্য গত পরিদর্শন থেকে প্রাপ্ত ২-৩ টি বিষয় উল্লেখ
+                    ফলো-আপ করার জন্য গত পরিদর্শন থেকে প্রাপ্ত ১-২ টি বিষয় উল্লেখ
                     করুন যেখানে উন্নতি প্রয়োজন ছিল ঃ
                   </Text>
                   <View style={{ flexDirection: "row" }}>
@@ -235,53 +313,149 @@ export default class LibraryManagementObservationScreen extends React.Component 
             </View>
 
             <View style={{ padding: 10 }}>
-              <Text style={styles.bigRedText}>
-                ইনডিকেটর(প্রতিটি সাব-ইনডিকেটর "হ্যাঁ" হলে প্রধান ইনডিকেটর
-                "হ্যাঁ" হবে)
-              </Text>
+              <Text style={styles.bigRedText}>ইনডিকেটর</Text>
               <View style={{ padding: 5 }}>
                 <View style={{ flexDirection: "row" }}>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <Text style={{ backgroundColor: "#f5f5f5" }}>
+                    <Text
+                      style={{ backgroundColor: "#ADD8E6", fontWeight: "bold" }}
+                    >
                       ক্রমিক নং
                     </Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <Text style={{ backgroundColor: "#f5f5f5" }}>ইনডিকেটর</Text>
+                    <View style={{ flexDirection: "row" }}>
+                      <View style={{ flex: 1, padding: 2 }}>
+                        <Text
+                          style={{
+                            backgroundColor: "#ADD8E6",
+                            fontWeight: "bold",
+                          }}
+                        >
+                          সরব পাঠ
+                        </Text>
+                        <Checkbox
+                          status={checked ? "checked" : "unchecked"}
+                          onPress={() => {
+                            this.setState({ checked: !checked });
+                          }}
+                        />
+                      </View>
+                      <View style={{ flex: 1, padding: 2 }}>
+                        <Text
+                          style={{
+                            backgroundColor: "#ADD8E6",
+                            fontWeight: "bold",
+                          }}
+                        >
+                          অংশগ্রহণমূলক পাঠ
+                        </Text>
+                        <Checkbox
+                          status={checked ? "checked" : "unchecked"}
+                          onPress={() => {
+                            this.setState({ checked: !checked });
+                          }}
+                        />
+                      </View>
+                    </View>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <Text style={{ backgroundColor: "#f5f5f5" }}>হ্যা</Text>
+                    <View style={{ flexDirection: "row" }}>
+                      <View style={{ flex: 1, padding: 2 }}>
+                        <Text
+                          style={{
+                            backgroundColor: "#ADD8E6",
+                            fontWeight: "bold",
+                          }}
+                        >
+                          স্বাধীনভাবে পড়া
+                        </Text>
+                        <Checkbox
+                          status={checked ? "checked" : "unchecked"}
+                          onPress={() => {
+                            this.setState({ checked: !checked });
+                          }}
+                        />
+                      </View>
+                      <View style={{ flex: 1, padding: 2 }}>
+                        <Text
+                          style={{
+                            backgroundColor: "#ADD8E6",
+                            fontWeight: "bold",
+                          }}
+                        >
+                          জুটিতে পড়া
+                        </Text>
+                        <Checkbox
+                          status={checked ? "checked" : "unchecked"}
+                          onPress={() => {
+                            this.setState({ checked: !checked });
+                          }}
+                        />
+                      </View>
+                    </View>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <Text style={{ backgroundColor: "#f5f5f5" }}>না</Text>
-                  </View>
-                  <View style={{ flex: 1, padding: 2 }}>
-                    <Text style={{ backgroundColor: "#f5f5f5" }}>
-                      "না" হলে করনীয়
+                    <Text
+                      style={{ backgroundColor: "#ADD8E6", fontWeight: "bold" }}
+                    >
+                      প্রাইওরিটি এরিয়া
                     </Text>
                   </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <Text
+                      style={{ backgroundColor: "#ADD8E6", fontWeight: "bold" }}
+                    >
+                      হ্যা
+                    </Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <Text
+                      style={{ backgroundColor: "#ADD8E6", fontWeight: "bold" }}
+                    >
+                      না
+                    </Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <Text
+                      style={{ backgroundColor: "#ADD8E6", fontWeight: "bold" }}
+                    >
+                      আংশিক
+                    </Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <Text
+                      style={{ backgroundColor: "#ADD8E6", fontWeight: "bold" }}
+                    >
+                      মন্তব্য
+                    </Text>
+                  </View>
+                </View>
+                <View style={{ flexDirection: "row" }}>
+                  <Text
+                    style={{ backgroundColor: "#ADD8E6", fontWeight: "bold" }}
+                  >
+                    ......................................................সার্বিক......................................................
+                  </Text>
                 </View>
                 <View style={{ flexDirection: "row" }}>
                   <View style={{ flex: 1, padding: 2 }}>
                     <Text>১.</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <View>
-                      <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-                        বিদ্যালয়ের সংশ্লিষ্ট শিক্ষক পাঠাগার ব্যবস্থাপনা বিষয়ে
-                        প্রশিক্ষণে অংশগ্রহণ করেছেন
-                      </Text>
-                    </View>
-                    <View>
-                      <Text style={{ fontSize: 16 }}>
-                        ১.১ পাঠাগার বাবস্থাপনার জন্য পর্যবেক্ষণকৃত শ্রেণিতে একজন
-                        প্রশিক্ষণ প্রাপ্ত লাইব্রেরি শিক্ষক দায়িত্ব প্রাপ্ত আছেন
-                      </Text>
-                      <Text style={{ fontSize: 16 }}>
-                        ১.২বিদ্যালয়ের প্রধান শিক্ষক রুম টু রিড পরিচালিত পাঠাগার
-                        ব্যবস্থাপনা প্রশিক্ষণে অংশগ্রহণ করেছেন
-                      </Text>
-                    </View>
+                    <Text>
+                      শিক্ষক সকল শিক্ষার্থীদের সাথে বন্ধুত্বপূর্ণ যোগাযোগ করেছেন
+                      ।
+                    </Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <Text>
+                      শিক্ষক সকল শিক্ষার্থীদের সাথে বন্ধুত্বপূর্ণ যোগাযোগ করেছেন
+                      ।
+                    </Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <Text style={{ fontWeight: "bold" }}>১</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
                     <Checkbox
@@ -302,33 +476,41 @@ export default class LibraryManagementObservationScreen extends React.Component 
                     <Text>না</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <Text>
-                      এলপিও-কে অবহিত করুন এবং রুম টু রিডের সহায়তা প্রয়োজন হলে
-                      মাসিক প্রতিবেদনে উল্লেখ করুন
-                    </Text>
+                    <Checkbox
+                      status={checked ? "checked" : "unchecked"}
+                      onPress={() => {
+                        this.setState({ checked: !checked });
+                      }}
+                    />
+                    <Text>আংশিক</Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <TextInput
+                      style={{ height: 40, padding: 5 }}
+                      placeholder="........."
+                    ></TextInput>
                   </View>
                 </View>
-
                 <View style={{ flexDirection: "row" }}>
                   <View style={{ flex: 1, padding: 2 }}>
                     <Text>২.</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <View>
-                      <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-                        পাঠাগার কার্যক্রম পরিচালনার জন্য শ্রেণীকক্ষটি উপযোগী
-                      </Text>
-                    </View>
-                    <View>
-                      <Text style={{ fontSize: 16 }}>
-                        ২.১ শ্রেণীকক্ষের দরজা-জানালা ভালো অবস্থায় এবং তালা
-                        দেওয়ার ব্যবস্থা আছে
-                      </Text>
-                      <Text style={{ fontSize: 16 }}>
-                        ২.২ শিক্ষার্থীদের বসার জন্য শ্রেণীকক্ষ নিরাপদ ও পরিষ্কার
-                        (ফাটল, গর্ত ইত্যাদি সমস্যা নাই)
-                      </Text>
-                    </View>
+                    <Text>
+                      শিক্ষক পড়ার ঘণ্টা কার্যক্রমে ছেলে-মেয়ে, বিশেষ চাহিদা
+                      সম্পন্ন ও পিছিয়ে পড়া শিক্ষার্থীদের অংশগ্রহণে উৎসাহিত
+                      করেছেন ।
+                    </Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <Text>
+                      শিক্ষক পড়ার ঘণ্টা কার্যক্রমে ছেলে-মেয়ে, বিশেষ চাহিদা
+                      সম্পন্ন ও পিছিয়ে পড়া শিক্ষার্থীদের অংশগ্রহণে উৎসাহিত
+                      করেছেন ।
+                    </Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <Text style={{ fontWeight: "bold" }}>১</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
                     <Checkbox
@@ -349,40 +531,41 @@ export default class LibraryManagementObservationScreen extends React.Component 
                     <Text>না</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <Text>
-                      প্রধান শিক্ষকের সাথে আলোচনা এবং LPO-কে অবহিত করুন । সহায়তা
-                      প্রয়োজন হলে মাসিক প্রতিবেদন উল্লেখ করুন
-                    </Text>
+                    <Checkbox
+                      status={checked ? "checked" : "unchecked"}
+                      onPress={() => {
+                        this.setState({ checked: !checked });
+                      }}
+                    />
+                    <Text>আংশিক</Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <TextInput
+                      style={{ height: 40, padding: 5 }}
+                      placeholder="........."
+                    ></TextInput>
                   </View>
                 </View>
-
                 <View style={{ flexDirection: "row" }}>
                   <View style={{ flex: 1, padding: 2 }}>
                     <Text>৩.</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <View>
-                      <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-                        পাঠাগার বুক শেলফটি ঠিকমত স্থাপন করা হয়েছে এবং ভালো
-                        অবস্থায় আছে
-                      </Text>
-                    </View>
-                    <View>
-                      <Text style={{ fontSize: 16 }}>
-                        ৩.১ বুক শেলফের আশে পাশে পর্যাপ্ত জায়গা রয়েছে যাতে
-                        শিক্ষারতিরা সহজে চলাচল করতে পারে, সহজে বই নিতে পারে এবং
-                        বই পড়ার কাজে অংশ নিতে পারে
-                      </Text>
-                      <Text style={{ fontSize: 16 }}>
-                        ৩.২ বুক শেলফ এমন জায়গায় স্থাপন করা হয়েছে যার ফলে বইয়ের
-                        উপর সরাসরি সূর্যের আলো বা বৃষ্টি পড়ে না কিংবা সরাসরি
-                        জানালার সম্মুখে নয়
-                      </Text>
-                      <Text style={{ fontSize: 16 }}>
-                        ৩.৩ বুক শেলফ এবং শিক্ষকের টেবিল ভালো অবস্থায় আছে
-                        (ভাঙ্গা/ ব্যবহার অনুপযোগী নয়)
-                      </Text>
-                    </View>
+                    <Text>
+                      শিক্ষক পড়ার ঘণ্টা কার্যক্রম সম্পর্কে নির্দেশাবলী
+                      পরিষ্কারভাবে দিয়েছেন এবং নির্দেশনা অনুযায়ী বর্ণিত ধাপগুলা
+                      ধারাবাহিকভাবে অনুসরণ করে শ্রেণিপাঠ পরিচালনা করেছেন ।
+                    </Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <Text>
+                      শিক্ষক পড়ার ঘণ্টা কার্যক্রম সম্পর্কে নির্দেশাবলী
+                      পরিষ্কারভাবে দিয়েছেন এবং নির্দেশনা অনুযায়ী বর্ণিত ধাপগুলা
+                      ধারাবাহিকভাবে অনুসরণ করে শ্রেণিপাঠ পরিচালনা করেছেন ।
+                    </Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <Text style={{ fontWeight: "bold" }}>১</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
                     <Checkbox
@@ -403,26 +586,44 @@ export default class LibraryManagementObservationScreen extends React.Component 
                     <Text>না</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <Text>
-                      পাঠাগার ব্যবস্থাপনা ম্যনুয়ালের আলোকে আরও ভালো কোনো স্থানে
-                      ঠিকমত বুক-শেলফটি স্থাপন করা যায় কিনা এ বিষয়ে পাঠাগারের
-                      প্রধান শিক্ষকের সাথে আলোচনা করুন । প্রয়োজনে স্থাপন করে
-                      দেখান ।
-                    </Text>
+                    <Checkbox
+                      status={checked ? "checked" : "unchecked"}
+                      onPress={() => {
+                        this.setState({ checked: !checked });
+                      }}
+                    />
+                    <Text>আংশিক</Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <TextInput
+                      style={{ height: 40, padding: 5 }}
+                      placeholder="........."
+                    ></TextInput>
                   </View>
                 </View>
-
+                <View style={{ flexDirection: "row" }}>
+                  <Text
+                    style={{ backgroundColor: "#ADD8E6", fontWeight: "bold" }}
+                  >
+                    ......................................................পড়ার
+                    আগে......................................................
+                  </Text>
+                </View>
                 <View style={{ flexDirection: "row" }}>
                   <View style={{ flex: 1, padding: 2 }}>
                     <Text>৪.</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <View>
-                      <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-                        বুক রেজিস্টার আছে এবং নতুন বই পাওয়ার সাথে সাথে নিয়মিত
-                        হালনাগাদ করা হয়
-                      </Text>
-                    </View>
+                    <Text>
+                      শিক্ষক পাঠাগার থেকে একটা বই নিয়ে বইয়ের প্রচ্ছদ
+                      শিক্ষার্থীদের দেখিয়েছেন এবং বইয়ের নাম ও লেখকের নাম বলেছেন{" "}
+                    </Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <Text>প্রযোজ্য নয়</Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <Text style={{ fontWeight: "bold" }}>২</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
                     <Checkbox
@@ -443,34 +644,36 @@ export default class LibraryManagementObservationScreen extends React.Component 
                     <Text>না</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <Text>বুক রেজিস্টার যাচাই করুন এবং হালনাগাদ করুন । </Text>
+                    <Checkbox
+                      status={checked ? "checked" : "unchecked"}
+                      onPress={() => {
+                        this.setState({ checked: !checked });
+                      }}
+                    />
+                    <Text>আংশিক</Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <TextInput
+                      style={{ height: 40, padding: 5 }}
+                      placeholder="........."
+                    ></TextInput>
                   </View>
                 </View>
-
                 <View style={{ flexDirection: "row" }}>
                   <View style={{ flex: 1, padding: 2 }}>
                     <Text>৫.</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <View>
-                      <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-                        বুক শেলফে নির্দেশনা অনুযায়ী বই সাজানো হয়েছে
-                      </Text>
-                    </View>
-                    <View>
-                      <Text style={{ fontSize: 16 }}>
-                        ৫.১ পড়ার ঘণ্টায় সকল বই এবং পড়ার সামগ্রী শেলফ-এ সাজানো
-                        আছে, বাক্সে তালাবদ্ধ নয়
-                      </Text>
-                      <Text style={{ fontSize: 16 }}>
-                        ৫.২ সকল বই লেভেল অনুযায়ী সাজানো এবং বইয়ের
-                        প্রচ্ছদ/কভারেরপ লেভেল সহজেই চোখে পড়ে
-                      </Text>
-                      <Text style={{ fontSize: 16 }}>
-                        ৫.৩ বইগুলো এমনভাবে সাজানো আছে যাতে শিখাত্রিরা সহজেই নিতে
-                        পারে
-                      </Text>
-                    </View>
+                    <Text>
+                      শিক্ষক বই থেকে দু-একটি শব্দ অর্থ সহ পরিষ্কারভাবে
+                      শিক্ষার্থীদের শিখিয়েছেন ।
+                    </Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <Text>প্রযোজ্য নয়</Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <Text style={{ fontWeight: "bold" }}>৩</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
                     <Checkbox
@@ -491,12 +694,29 @@ export default class LibraryManagementObservationScreen extends React.Component 
                     <Text>না</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <Text>
-                      পাঠাগার ব্যবস্থাপনা ম্যনুয়ালের আলোকে বই কিভাবে সাজাতে হয়
-                      বলুন এবং পাঠাগার শিক্ষক বা বুক ক্যাপ্টেনের সাথে নিয়ে বই
-                      সাজিয়ে দেখান ।
-                    </Text>
+                    <Checkbox
+                      status={checked ? "checked" : "unchecked"}
+                      onPress={() => {
+                        this.setState({ checked: !checked });
+                      }}
+                    />
+                    <Text>আংশিক</Text>
                   </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <TextInput
+                      style={{ height: 40, padding: 5 }}
+                      placeholder="........."
+                    ></TextInput>
+                  </View>
+                </View>
+
+                <View style={{ flexDirection: "row" }}>
+                  <Text
+                    style={{ backgroundColor: "#ADD8E6", fontWeight: "bold" }}
+                  >
+                    ......................................................পড়া
+                    চলাকালীন......................................................
+                  </Text>
                 </View>
 
                 <View style={{ flexDirection: "row" }}>
@@ -504,12 +724,16 @@ export default class LibraryManagementObservationScreen extends React.Component 
                     <Text>৬.</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <View>
-                      <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-                        ছাপাসমৃদ্ধ উপকরণ যেমন চার্ট, পোস্টার অথবা শিক্ষার্থীদের
-                        সৃজনশীল কাজ (আঁকা এবং লেখা) প্রদর্শিত আছে
-                      </Text>
-                    </View>
+                    <Text>
+                      গল্পের বই পড়ে শোনানোর পাশাপাশি শিক্ষক প্রযোজ্য ক্ষেত্রে
+                      অভিব্যক্তি প্রকাশ ও অঙ্গভঙ্গি করেও দেখিয়েছেন ।
+                    </Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <Text>প্রযোজ্য নয়</Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <Text style={{ fontWeight: "bold" }}>১</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
                     <Checkbox
@@ -530,10 +754,19 @@ export default class LibraryManagementObservationScreen extends React.Component 
                     <Text>না</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <Text>
-                      পাঠাগার ব্যবস্থাপনা ম্যানুয়ালএর আলোকে শ্রেণীকক্ষ
-                      ছাপাসমৃদ্ধ করার পদক্ষেপ নিন ।
-                    </Text>
+                    <Checkbox
+                      status={checked ? "checked" : "unchecked"}
+                      onPress={() => {
+                        this.setState({ checked: !checked });
+                      }}
+                    />
+                    <Text>আংশিক</Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <TextInput
+                      style={{ height: 40, padding: 5 }}
+                      placeholder="........."
+                    ></TextInput>
                   </View>
                 </View>
 
@@ -542,52 +775,16 @@ export default class LibraryManagementObservationScreen extends React.Component 
                     <Text>৭.</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <View>
-                      <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-                        কার্যকরী বই চেক-আউট ব্যবস্থা বিদ্যমান আছে
-                      </Text>
-                    </View>
-                    <View>
-                      <Text style={{ fontSize: 16 }}>
-                        ৭.১ বই চেক-আউটের নিয়মাবলী ও প্রক্রিয়া শ্রেণীকক্ষে
-                        পোস্টারে প্রদর্শিত আছে
-                      </Text>
-                      <Text style={{ fontSize: 16 }}>
-                        ৭.২ বই চেক-আউট করার জন্য রেজিস্টার এর ব্যবহার আছে
-                      </Text>
-                      <Text style={{ fontSize: 16 }}>
-                        ৭.৩ পূর্ববর্তী সপ্তাহের বই গ্রহণ ও জমা দেয়ার তথ্য
-                        রেজিস্টারে লিপিবদ্ধ আছে
-                      </Text>
-                      <Text style={{ fontSize: 16 }}>
-                        ৭.৪ গত মাস পর্যন্ত ফেরত দেওয়া হয়নি এমন বইসমূহের নাম
-                        রেজিস্টারে লিপিবদ্ধ আছে
-                      </Text>
-                      <Text style={{ fontSize: 16 }}>
-                        ৭.৫ পূর্ববর্তী সপ্তাহের বই গ্রহণ ও জমা দেয়ার তথ্য
-                        রেজিস্টারে লিপিবদ্ধ আছে
-                      </Text>
-                      <View style={{ flexDirection: "row" }}>
-                        <View style={{ flex: 1, padding: 2 }}>
-                          <Text style={{ fontWeight: "bold" }}>
-                            মাসের নাম (গত পরিদর্শনের পর থেকে){" "}
-                          </Text>
-                          <TextInput
-                            style={{ height: 40, padding: 5 }}
-                            placeholder=".................."
-                          ></TextInput>
-                        </View>
-                        <View style={{ flex: 1, padding: 2 }}>
-                          <Text style={{ fontWeight: "bold" }}>
-                            মোট বই চেক-আউটের এর সংখ্যা
-                          </Text>
-                          <TextInput
-                            style={{ height: 40, padding: 5 }}
-                            placeholder=".................."
-                          ></TextInput>
-                        </View>
-                      </View>
-                    </View>
+                    <Text>
+                      শুধুমাত্র অংশ গ্রহণ মূলক পড়ার ক্ষেত্রে ঃ গল্পটি
+                      শিক্ষার্থীদের পড়ার লেভেল অনুযায়ী উপযুক্ত ছিল ।
+                    </Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <Text>প্রযোজ্য নয়</Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <Text style={{ fontWeight: "bold" }}>১</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
                     <Checkbox
@@ -608,13 +805,19 @@ export default class LibraryManagementObservationScreen extends React.Component 
                     <Text>না</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <Text>
-                      পাঠাগার ব্যবস্থাপনা ম্যানুয়ালএর আলোকে বই গ্রহণ ও জমা
-                      রেজিস্টার নিশ্চিত করুন । বই কম চেক-আউট হয়ে থাকলে প্রধান
-                      শিক্ষকের সাথে এর কারণ সমূহ আলোচনা করুন । বুক চেক- আউট
-                      বাড়ানোর ব্যাপারে তাঁর সাথে আলোচনা করুন এবং প্রয়োজনীয়
-                      পদক্ষেপ নিন ।
-                    </Text>
+                    <Checkbox
+                      status={checked ? "checked" : "unchecked"}
+                      onPress={() => {
+                        this.setState({ checked: !checked });
+                      }}
+                    />
+                    <Text>আংশিক</Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <TextInput
+                      style={{ height: 40, padding: 5 }}
+                      placeholder="........."
+                    ></TextInput>
                   </View>
                 </View>
 
@@ -623,21 +826,20 @@ export default class LibraryManagementObservationScreen extends React.Component 
                     <Text>৮.</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <View>
-                      <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-                        নির্দিষ্ট পড়ার ঘণ্টা বিদ্যমান রয়েছে
-                      </Text>
-                    </View>
-                    <View>
-                      <Text style={{ fontSize: 16 }}>
-                        ৮.১ পর্যবেক্ষণকৃত শ্রেণির রুটিনে সপ্তাহে একদিন পড়ার
-                        ঘণ্টা কার্যক্রম আছে
-                      </Text>
-                      <Text style={{ fontSize: 16 }}>
-                        ৮.২ প্রতিদিন বিদ্যালয় ছুটির পূর্বে বা পরে অথবা বিরতির
-                        সময় বই পড়ার চেক-আউটের সুযোগ আছে
-                      </Text>
-                    </View>
+                    <Text>
+                      শুধুমাত্র অংশ গ্রহণ মূলক পড়ার জন্যঃ গল্পটি দ্বিতীয়বার পড়ার
+                      ক্ষেত্রে, শিক্ষক শিক্ষার্থীরা একসাথে পড়েছেন ।
+                    </Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <Text>
+                      শুধুমাত্র জুটিতে পড়ার ক্ষেত্রে ঃ শিক্ষক নির্দেশনার মাধ্যমে
+                      নিশ্চিত করেছেন যে, শিক্ষার্থীরা একে অপরের পাশে জোড়ায় জোড়ায়
+                      বসেছে এবং উভয়ই পড়েছে ।
+                    </Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <Text style={{ fontWeight: "bold" }}>১</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
                     <Checkbox
@@ -658,36 +860,42 @@ export default class LibraryManagementObservationScreen extends React.Component 
                     <Text>না</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <Text>
-                      LPO-কে অবহিত করুন এবং রুম টু রিডের সহায়তা প্রয়োজন হলে
-                      মাসিক প্রতিবেদন উল্লেখ করুন ।
-                    </Text>
+                    <Checkbox
+                      status={checked ? "checked" : "unchecked"}
+                      onPress={() => {
+                        this.setState({ checked: !checked });
+                      }}
+                    />
+                    <Text>আংশিক</Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <TextInput
+                      style={{ height: 40, padding: 5 }}
+                      placeholder="........."
+                    ></TextInput>
                   </View>
                 </View>
-
-                <Text
-                  style={{
-                    fontSize: 18,
-                    fontWeight: "bold",
-                    backgroundColor: "#f5f5f5",
-                  }}
-                >
-                  শ্রেণীকক্ষ পাঠাগার উন্নয়নশীল হতে হলে উপরের সবগুলা (১ থেকে ৮)
-                  ইনডিকেটর "হ্যাঁ" হতে হবে
-                </Text>
 
                 <View style={{ flexDirection: "row" }}>
                   <View style={{ flex: 1, padding: 2 }}>
                     <Text>৯.</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <View>
-                      <Text style={{ fontSize: 18 }}>
-                        পড়া ভিত্তিক কার্যক্রমের তথ্য লিপিবদ্ধ করার জন্য একটি
-                        রেজিস্টার রয়েছে এবং শিক্ষক প্রতি সপ্তাহে পড়ার ঘণ্টায় কি
-                        কি কার্যক্রম করেছেন তা লিপিবদ্ধ করেন
-                      </Text>
-                    </View>
+                    <Text>
+                      সকল ধরনের (ছেলে-মেয়ে, বিশেষ চাহিদা সম্পন্ন ও পিছিয়ে পড়া)
+                      শিক্ষার্থীদের অংশগ্রহণ নিশ্চিত শিক্ষক গল্পটি পড়ার সময় এরপর
+                      কি হতে/ঘটতে পারে ? এমন দু/তিনটি প্রশ্ন করেছেন ।
+                    </Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <Text>
+                      সকল ধরনের (ছেলে-মেয়ে, বিশেষ চাহিদা সম্পন্ন ও পিছিয়ে পড়া)
+                      শিক্ষার্থীদের অংশগ্রহণ নিশ্চিত করতে শিক্ষক একক বা জুটিতে
+                      পড়া শুনেছেন এবং প্রয়োজনে প্রশ্ন করেছেন ।
+                    </Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <Text style={{ fontWeight: "bold" }}>২</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
                     <Checkbox
@@ -708,8 +916,29 @@ export default class LibraryManagementObservationScreen extends React.Component 
                     <Text>না</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <Text>LPO-কে অবহিত করুন এবং মাসিক সভায় তা তুলে ধরুন ।</Text>
+                    <Checkbox
+                      status={checked ? "checked" : "unchecked"}
+                      onPress={() => {
+                        this.setState({ checked: !checked });
+                      }}
+                    />
+                    <Text>আংশিক</Text>
                   </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <TextInput
+                      style={{ height: 40, padding: 5 }}
+                      placeholder="........."
+                    ></TextInput>
+                  </View>
+                </View>
+
+                <View style={{ flexDirection: "row" }}>
+                  <Text
+                    style={{ backgroundColor: "#ADD8E6", fontWeight: "bold" }}
+                  >
+                    ......................................................পড়া
+                    শেষে......................................................
+                  </Text>
                 </View>
 
                 <View style={{ flexDirection: "row" }}>
@@ -717,12 +946,21 @@ export default class LibraryManagementObservationScreen extends React.Component 
                     <Text>১০.</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <View>
-                      <Text style={{ fontSize: 18 }}>
-                        সংশ্লিষ্ট লাইব্রেরী শিক্ষক রুম টু রিড প্রদত্ত 'পড়ার
-                        ঘণ্টা কার্যক্রম' প্রশিক্ষন-এ অংশগ্রহণ করেছেন
-                      </Text>
-                    </View>
+                    <Text>
+                      সকল ধরনের (ছেলে-মেয়ে, বিশেষ চাহিদা সম্পন্ন ও পিছিয়ে পড়া)
+                      শিক্ষার্থীদের বোধগম্যতা যাচাইয়ের জন্য শিক্ষক কখন, কোথায়,
+                      কি এবং কে ইত্যাদি প্রশ্ন করেছেন ।
+                    </Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <Text>
+                      সকল ধরনের (ছেলে-মেয়ে, বিশেষ চাহিদা সম্পন্ন ও পিছিয়ে পড়া)
+                      শিক্ষার্থীদের বোধগম্যতা যাচাইয়ের জন্য শিক্ষক কখন, কোথায়,
+                      কি এবং কে ইত্যাদি প্রশ্ন করেছেন ।
+                    </Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <Text style={{ fontWeight: "bold" }}>৩</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
                     <Checkbox
@@ -743,118 +981,39 @@ export default class LibraryManagementObservationScreen extends React.Component 
                     <Text>না</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <Text>
-                      প্রধান শিক্ষকের সাথে আলোচনা করুন ও LPO-কে অবহিত করুন ।
-                    </Text>
+                    <Checkbox
+                      status={checked ? "checked" : "unchecked"}
+                      onPress={() => {
+                        this.setState({ checked: !checked });
+                      }}
+                    />
+                    <Text>আংশিক</Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <TextInput
+                      style={{ height: 40, padding: 5 }}
+                      placeholder="........."
+                    ></TextInput>
                   </View>
                 </View>
-
-                <Text
-                  style={{
-                    fontSize: 18,
-                    fontWeight: "bold",
-                    backgroundColor: "#f5f5f5",
-                  }}
-                >
-                  শ্রেণীকক্ষ পাঠাগার কার্যকর হতে হলে উপরের সবগুলা (১ থেকে ১০)
-                  ইনডিকেটর "হ্যাঁ" হতে হবে
-                </Text>
-
                 <View style={{ flexDirection: "row" }}>
                   <View style={{ flex: 1, padding: 2 }}>
                     <Text>১১.</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <View>
-                      <Text style={{ fontSize: 18 }}>
-                        গত ছয় মাসে কমপক্ষে একটি অভিভাবক সভা হয়েছে যেখানে
-                        সংশ্লিষ্ট শ্রেণির শিক্ষার্থীদের পঠন অথবা পাঠাগার বিষয়ে
-                        আলোচনা হয়েছে
-                      </Text>
-                    </View>
-                  </View>
-                  <View style={{ flex: 1, padding: 2 }}>
-                    <Checkbox
-                      status={checked ? "checked" : "unchecked"}
-                      onPress={() => {
-                        this.setState({ checked: !checked });
-                      }}
-                    />
-                    <Text>হ্যা</Text>
-                  </View>
-                  <View style={{ flex: 1, padding: 2 }}>
-                    <Checkbox
-                      status={checked ? "checked" : "unchecked"}
-                      onPress={() => {
-                        this.setState({ checked: !checked });
-                      }}
-                    />
-                    <Text>না</Text>
-                  </View>
-                  <View style={{ flex: 1, padding: 2 }}>
-                    <Text>প্রধান শিক্ষককের জানান এবং LPO-কে অবহিত করুন ।</Text>
-                  </View>
-                </View>
-
-                <View style={{ flexDirection: "row" }}>
-                  <View style={{ flex: 1, padding: 2 }}>
-                    <Text>১২.</Text>
-                  </View>
-                  <View style={{ flex: 1, padding: 2 }}>
-                    <View>
-                      <Text style={{ fontSize: 18 }}>
-                        বিদ্যালয় কর্মসূচি শুরুর ১ বছরের মধ্যে অভিভাবক ও স্থানীয়
-                        জনগণের অংশগ্রহণে অন্তত একটি পড়া বিষয়ক অনুষ্ঠান হয়েছে
-                      </Text>
-                    </View>
-                  </View>
-                  <View style={{ flex: 1, padding: 2 }}>
-                    <Checkbox
-                      status={checked ? "checked" : "unchecked"}
-                      onPress={() => {
-                        this.setState({ checked: !checked });
-                      }}
-                    />
-                    <Text>হ্যা</Text>
-                  </View>
-                  <View style={{ flex: 1, padding: 2 }}>
-                    <Checkbox
-                      status={checked ? "checked" : "unchecked"}
-                      onPress={() => {
-                        this.setState({ checked: !checked });
-                      }}
-                    />
-                    <Text>না</Text>
+                    <Text>
+                      বই চেক আউট করার জন্য আহ্বান জানিয়েছে বা সুযোগ করে দিয়েছেন
+                      ।
+                    </Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
                     <Text>
-                      প্রধান শিক্ষককের সাথে আলোচনা করুন এবং LPO'র ফলোআপের জন্য
-                      নোট নিন
+                      বই চেক আউট করার জন্য আহ্বান জানিয়েছে বা সুযোগ করে দিয়েছেন
+                      ।
                     </Text>
                   </View>
-                </View>
-
-                <View style={{ flexDirection: "row" }}>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <Text>১৩.</Text>
-                  </View>
-                  <View style={{ flex: 1, padding: 2 }}>
-                    <View>
-                      <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-                        পাঠাগার কর্মসূচি দীর্ঘ মেয়াদে পরিচালনার জন্য ব্যবস্থাপনা
-                        কমিটি পরিকল্পনা গ্রহণ করেছে
-                      </Text>
-                    </View>
-                    <View>
-                      <Text style={{ fontSize: 16 }}>
-                        ১৩.১ অভিভাবক, স্থানীয় জনগণ এবং প্রধান শিক্ষক যৌথভাবে
-                        একমত হয়ে পরিকল্পনাটি করেছেন ।
-                      </Text>
-                      <Text style={{ fontSize: 16 }}>
-                        ১৩.২ পরিকল্পনায় অভিভাবক ও স্থানীয় জনগণ সুনির্দিষ্ট
-                        দায়িত্বের বিষয়টি উল্লেখ আছে ।
-                      </Text>
-                    </View>
+                    <Text style={{ fontWeight: "bold" }}>১</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
                     <Checkbox
@@ -875,25 +1034,34 @@ export default class LibraryManagementObservationScreen extends React.Component 
                     <Text>না</Text>
                   </View>
                   <View style={{ flex: 1, padding: 2 }}>
-                    <Text>
-                      প্রধান শিক্ষককের সাথে আলোচনা করুন এবং LPO'র ফলোআপের জন্য
-                      নোট নিন
-                    </Text>
+                    <Checkbox
+                      status={checked ? "checked" : "unchecked"}
+                      onPress={() => {
+                        this.setState({ checked: !checked });
+                      }}
+                    />
+                    <Text>আংশিক</Text>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
+                    <TextInput
+                      style={{ height: 40, padding: 5 }}
+                      placeholder="........."
+                    ></TextInput>
                   </View>
                 </View>
               </View>
             </View>
 
             <View style={{ padding: 10 }}>
-              <Text style={{ backgroundColor: "#f5f5f5" }}>
+              <Text style={{ backgroundColor: "#ADD8E6" }}>
                 শ্রেণি শিক্ষকের সাথে আলোচনার জন্য গুরুত্বপূর্ণ কিছু বিষয় ঃ
               </Text>
               <View style={{ padding: 5 }}>
                 <View style={{ flexDirection: "row" }}>
                   <View style={{ flex: 1, padding: 2 }}>
                     <Text>
-                      শিক্ষক ভালো করেছেন এমন ২/৩ টি ইনডিকেটর ( নম্বর ) উল্লেখ
-                      করুন ।
+                      শিক্ষক ভালো করেছেন এমন ২/৩ টি সূচক ( অগ্রাধিকার এরিয়ার
+                      নম্বর ) উল্লেখ করুন ।
                     </Text>
                   </View>
                 </View>
@@ -903,10 +1071,14 @@ export default class LibraryManagementObservationScreen extends React.Component 
                       style={{ height: 40, padding: 5 }}
                       placeholder="১।  ..................................................."
                     ></TextInput>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
                     <TextInput
                       style={{ height: 40, padding: 5 }}
                       placeholder="২।  ..................................................."
                     ></TextInput>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
                     <TextInput
                       style={{ height: 40, padding: 5 }}
                       placeholder="৩।  ..................................................."
@@ -917,8 +1089,8 @@ export default class LibraryManagementObservationScreen extends React.Component 
                   <View style={{ flex: 1, padding: 2 }}>
                     <Text>
                       অগ্রাধিকারভিত্তিতে শিক্ষককে তার নিজস্ব উন্নয়নের জন্য যে
-                      ১/২ টি ইনডিকেটর (নম্বর) চিহ্নিত করেছেন তা উল্লেখ করুন এবং
-                      তিনি তার উন্নয়ন এ কিভাবে এটি করবেন সেটি উল্লেখ করুন ।
+                      ১/২ টি সূচক (এরিয়ার নম্বর) চিহ্নিত করেছেন তা উল্লেখ করুন
+                      এবং তিনি তার উন্নয়ন এ কিভাবে এটি করবেন সেটি উল্লেখ করুন ।
                     </Text>
                   </View>
                 </View>
@@ -928,6 +1100,8 @@ export default class LibraryManagementObservationScreen extends React.Component 
                       style={{ height: 40, padding: 5 }}
                       placeholder="১. ...................................."
                     ></TextInput>
+                  </View>
+                  <View style={{ flex: 1, padding: 2 }}>
                     <TextInput
                       style={{ height: 40, padding: 5 }}
                       placeholder="২. ...................................."
