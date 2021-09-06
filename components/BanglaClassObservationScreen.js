@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 17/08/2021
-//  Modify Date: 25/08/2021
+//  Modify Date: 05/09/2021
 //  Description: Bangla class observation component
 
 import React from "react";

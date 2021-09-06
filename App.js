@@ -9,15 +9,19 @@ import {
   ImageBackground,
   Button,
 } from "react-native";
+
+//import Navigator from "./routes/navStack";
+
 import BanglaClassObservationScreen from "./components/BanglaClassObservationScreen";
 import HomeScreen from "./components/HomeScreen";
 import LoginScreen from "./components/LoginScreen";
 import RegistrationScreen from "./components/RegistrationScreen";
 import LibraryManagementObservationScreen from "./components/LibraryManagementObservationScreen";
 import LibraryReadingActivitiesObservationScreen from "./components/LibraryReadingActivitiesObservationScreen";
+import OverallSchoolObservationScreen from "./components/OverallSchoolObservationScreen";
 
 export default class App extends React.Component {
   render() {
-    return <LibraryReadingActivitiesObservationScreen />;
+    return <HomeScreen />;
   }
 }

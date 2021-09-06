@@ -16,10 +16,45 @@ export default class LoginScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image
-          style={styles.logoMain}
-          source={require("../assets/rtr.png")}
-        ></Image>
+        <Text
+          style={{
+            color: "blue",
+            fontWeight: "bold",
+            fontSize: 20,
+            padding: 25,
+            marginTop: 50,
+          }}
+        >
+          McGovern-Dole International Food for Education and Child Nutrition
+          Program
+        </Text>
+
+        <View
+          style={{
+            flex: 1,
+            flexDirection: "row",
+          }}
+        >
+          <View style={{ flex: 1, marginLeft: 150 }}>
+            <TouchableOpacity
+              onPress={() => loadInBrowser("http://google.com")}
+            >
+              <Image
+                style={styles.logoMain}
+                source={require("../assets/rtr.png")}
+              ></Image>
+            </TouchableOpacity>
+          </View>
+          <View style={{ flex: 1, marginRight: 150 }}>
+            <TouchableOpacity>
+              <Image
+                style={styles.logoMain}
+                source={require("../assets/wfp.png")}
+              ></Image>
+            </TouchableOpacity>
+          </View>
+        </View>
+
         <View style={styles.inputView}>
           <TextInput
             style={styles.inputText}
@@ -46,10 +81,18 @@ export default class LoginScreen extends React.Component {
         <TouchableOpacity>
           <Text style={styles.forgot}>Signup</Text>
         </TouchableOpacity>
+
+        <View>
+          <Text>&copy; All Reserved, RoomtoRead Bangldesh</Text>
+        </View>
       </View>
     );
   }
 }
+
+const loadInBrowser = (url) => {
+  Linking.openURL(url).catch((err) => console.error("Couldn't load page", err));
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -59,8 +102,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   logoMain: {
-    height: 150,
-    width: 150,
+    height: 100,
+    width: 100,
     resizeMode: "contain",
   },
   inputView: {
