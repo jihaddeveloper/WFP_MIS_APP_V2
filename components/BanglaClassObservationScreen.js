@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 17/08/2021
-//  Modify Date: 05/09/2021
+//  Modify Date: 18/09/2021
 //  Description: Bangla class observation component
 
 import React from "react";
@@ -13,6 +13,7 @@ import {
   Text,
   ScrollView,
   TextInput,
+  Picker,
 } from "react-native";
 import { color } from "react-native-reanimated";
 import { Checkbox } from "react-native-paper";
@@ -25,20 +26,23 @@ import {
   Cols,
   Cell,
 } from "react-native-table-component";
+import { Card } from "react-native-shadow-cards";
+import DropDownPicker from "react-native-dropdown-picker";
 
 export default class BanglaClassObservationScreen extends React.Component {
   state = {
     checked: false,
+
+    option: "yes",
+
+    choosenIndex: 0,
   };
 
   render() {
     const { checked } = this.state;
+
     return (
       <View style={styles.container}>
-        <Image
-          style={styles.logoMain}
-          source={require("../assets/rtr.png")}
-        ></Image>
         <Text
           style={{
             color: "blue",
@@ -50,11 +54,30 @@ export default class BanglaClassObservationScreen extends React.Component {
           McGovern-Dole International Food for Education and Child Nutrition
           Program
         </Text>
-        <Text style={{ fontSize: 20 }}>বাংলা ক্লাস পর্যবেক্ষণ ফরম</Text>
+        <Text style={{ fontSize: 20, fontWeight: "bold" }}>
+          বাংলা ক্লাস পর্যবেক্ষণ ফরম
+        </Text>
 
         <ScrollView>
           <View style={{ padding: 10 }}>
             <Text style={styles.bigRedText}>সাধারণ তথ্য:</Text>
+
+            <View style={{ flexDirection: "row", padding: 10 }}>
+              <View style={{ flex: 1 }}>
+                <Text>পরিদর্শক এর নাম:</Text>
+                <TextInput
+                  placeholder="..............."
+                  style={{ justifyContent: "flex-start" }}
+                />
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text>পদবী:</Text>
+                <TextInput
+                  placeholder="..............."
+                  style={{ justifyContent: "flex-end" }}
+                />
+              </View>
+            </View>
             <View style={{ flexDirection: "row", padding: 10 }}>
               <View style={{ flex: 1 }}>
                 <Text>বিদ্যালয়ের নাম:</Text>
@@ -84,22 +107,6 @@ export default class BanglaClassObservationScreen extends React.Component {
             </View>
             <View style={{ flexDirection: "row", padding: 10 }}>
               <View style={{ flex: 1 }}>
-                <Text>পরিদর্শক এর নাম:</Text>
-                <TextInput
-                  placeholder="..............."
-                  style={{ justifyContent: "flex-start" }}
-                />
-              </View>
-              <View style={{ flex: 1 }}>
-                <Text>পদবী:</Text>
-                <TextInput
-                  placeholder="..............."
-                  style={{ justifyContent: "flex-end" }}
-                />
-              </View>
-            </View>
-            <View style={{ flexDirection: "row", padding: 10 }}>
-              <View style={{ flex: 1 }}>
                 <Text>শ্রেণি শিক্ষকের নাম:</Text>
                 <TextInput
                   placeholder="..............."
@@ -110,22 +117,20 @@ export default class BanglaClassObservationScreen extends React.Component {
                     <Text>জেন্ডার:</Text>
                   </View>
                   <View style={{ flex: 1 }}>
-                    <Checkbox
-                      status={checked ? "checked" : "unchecked"}
-                      onPress={() => {
-                        this.setState({ checked: !checked });
+                    <Picker
+                      style={{
+                        height: 40,
+                        width: 120,
                       }}
-                    />
-                    <Text>মহিলা</Text>
-                  </View>
-                  <View style={{ flex: 1 }}>
-                    <Checkbox
-                      status={checked ? "checked" : "unchecked"}
-                      onPress={() => {
-                        this.setState({ checked: !checked });
+                      selectedValue={(this.state && this.state.option) || "yes"}
+                      onValueChange={(value) => {
+                        this.setState({ option: value });
                       }}
-                    />
-                    <Text>পুরুষ</Text>
+                      itemStyle={{ color: "white" }}
+                    >
+                      <Picker.Item label={"মহিলা"} value={"female"} />
+                      <Picker.Item label={"পুরুষ"} value={"male"} />
+                    </Picker>
                   </View>
                 </View>
               </View>
@@ -202,9 +207,9 @@ export default class BanglaClassObservationScreen extends React.Component {
                 <Text>ভর্তিকৃত শিশুর সংখ্যা:</Text>
                 <View style={{ flexDirection: "row" }}>
                   <View style={{ flex: 1 }}>
-                    <Text>মেয়ে ঃ</Text>
-                    <Text>ছেলে ঃ</Text>
-                    <Text>মোট ঃ</Text>
+                    <Text>মেয়েঃ</Text>
+                    <Text>ছেলেঃ</Text>
+                    <Text>মোটঃ</Text>
                   </View>
                   <View style={{ flex: 1 }}>
                     <TextInput
@@ -226,9 +231,9 @@ export default class BanglaClassObservationScreen extends React.Component {
                 <Text>উপস্থিত শিশুর সংখ্যা :</Text>
                 <View style={{ flexDirection: "row" }}>
                   <View style={{ flex: 1 }}>
-                    <Text>মেয়ে ঃ</Text>
-                    <Text>ছেলে ঃ</Text>
-                    <Text>মোট ঃ</Text>
+                    <Text>মেয়েঃ</Text>
+                    <Text>ছেলেঃ</Text>
+                    <Text>মোটঃ</Text>
                   </View>
                   <View style={{ flex: 1 }}>
                     <TextInput
@@ -251,6 +256,67 @@ export default class BanglaClassObservationScreen extends React.Component {
 
           <View style={{ padding: 10 }}>
             <Text style={styles.bigRedText}>নির্দেশনা </Text>
+            <Card style={{ padding: 10, margin: 10 }}>
+              <Text style={{ padding: 5 }}>
+                ১। সংশ্লিষ্ট বিষয়ে প্রশিক্ষণপ্রাপ্ত শিক্ষক কত্রিক পাঠ পরিচালিত
+                হলেই কেবল সম্পূর্ণ পাঠ পর্যবেক্ষণ করুন ।
+              </Text>
+              <Text style={{ padding: 5 }}>
+                ২। সম্পূর্ণ পাঠ পর্যবেক্ষণ করুন তবে অগ্রাধিকার এরিয়ার ভিত্তিতে
+                ভালো দিক ও সহায়তার ক্ষেত্রগুলা চিহ্নিত করুন ।
+              </Text>
+              <Text style={{ padding: 5 }}>
+                ৩। বাংলা পাঠ উপস্থাপন সংক্রান্ত 2-3 টি ভালো দিক উল্লেখ করুন।
+              </Text>
+              <Text style={{ padding: 5 }}>
+                ৪। অগ্রাধিকার এরিয়ার ভিত্তিতে উপর ভিত্তিতে যে ১-২ টি ইনডিকেটরের
+                উত্তর "না বা আংশিক" হয়েছে তার আলোকে সহায়তার জন্য
+                অগ্রাধিকারভিত্তিক ইনডিকেটর উল্লেখ করুন
+              </Text>
+              <Text style={{ padding: 5 }}>
+                ৫। বাংলা পাঠ উন্নতির জন্য শিক্ষকের সাথে 2-3 সূচক আলোচনা করুন।
+              </Text>
+              <Text style={{ padding: 5 }}>
+                ৬। রুমটোরিড থেকে কোনো পদক্ষেপ গ্রহণের প্রয়োজন হলে উল্লেখ করুন ।
+              </Text>
+            </Card>
+            <Card style={{ padding: 10, margin: 10 }}>
+              <Text style={{ justifyContent: "flex-end" }}>
+                ফলো-আপ করার জন্য গত পরিদর্শন থেকে প্রাপ্ত ১-২ টি বিষয় উল্লেখ
+                করুন যেখানে উন্নতি প্রয়োজন ছিল ঃ
+              </Text>
+              <View style={{ flexDirection: "row" }}>
+                <View style={{ flex: 1 }}>
+                  <View style={{ padding: 5 }}>
+                    <Text>১.</Text>
+                    <TextInput
+                      style={{ height: 50, padding: 5 }}
+                      multiline={true}
+                      numberOfLines={12}
+                      textAlignVertical="top"
+                    ></TextInput>
+                  </View>
+                  <View style={{ padding: 5 }}>
+                    <Text>২.</Text>
+                    <TextInput
+                      style={{ height: 50, padding: 5 }}
+                      multiline={true}
+                      numberOfLines={12}
+                      textAlignVertical="top"
+                    ></TextInput>
+                  </View>
+                  <View style={{ padding: 5 }}>
+                    <Text>৩.</Text>
+                    <TextInput
+                      style={{ height: 50, padding: 5 }}
+                      multiline={true}
+                      numberOfLines={12}
+                      textAlignVertical="top"
+                    ></TextInput>
+                  </View>
+                </View>
+              </View>
+            </Card>
             <View style={{ flexDirection: "row", padding: 10 }}>
               <View style={{ flex: 1 }}>
                 <Text style={{ padding: 5 }}>
@@ -311,9 +377,153 @@ export default class BanglaClassObservationScreen extends React.Component {
             </View>
           </View>
 
-          <View style={{ padding: 10 }}>
+          <View style={{ padding: 10, flex: 1 }}>
             <Text style={styles.bigRedText}>ইনডিকেটর</Text>
+            <View style={{ padding: 5, flexDirection: "row" }}>
+              <Text style={{ backgroundColor: "green" }}>
+                পাঠ চলাকালীন (পাঠ উপস্থাপনের শুরু থেকে দেখতে হবে এবং সার্বিক
+                অংশের সূচকগুলা শেষে দেখতে হবে ।)
+              </Text>
+            </View>
             <View style={{ padding: 5 }}>
+              <Card style={{ padding: 10, margin: 10, flex: 1 }}>
+                <Card style={{ padding: 10, flex: 1 }}>
+                  <Text>
+                    ১. শিক্ষক ধ্বনি সচেতনাতার কাজে ব্যবহৃত সকল বর্ণ ও শব্দের
+                    ধ্বনি সঠিকভাবে উচ্চারণ করেছেন এবং শিক্ষাত্রিদের চর্চা করার
+                    সুযোগ দিয়েছেন ।
+                  </Text>
+                  <Text style={{ fontWeight: "bold" }}>
+                    অগ্রাধিকার এরিয়া: ২
+                  </Text>
+                </Card>
+                <Card style={{ padding: 10, flex: 1 }}>
+                  <View style={{ flexDirection: "row" }}>
+                    <View style={{ flex: 1, padding: 2 }}>
+                      <Text>পর্যবেক্ষণ: </Text>
+                      <Picker
+                        style={{
+                          height: 40,
+                          width: 100,
+                        }}
+                        selectedValue={
+                          (this.state && this.state.option) || "yes"
+                        }
+                        onValueChange={(value) => {
+                          this.setState({ option: value });
+                        }}
+                        itemStyle={{ color: "white" }}
+                      >
+                        <Picker.Item label={"Yes"} value={"yes"} />
+                        <Picker.Item label={"No"} value={"no"} />
+                        <Picker.Item label={"Partial"} value={"partial"} />
+                      </Picker>
+                    </View>
+                    <View style={{ flex: 1, padding: 2 }}>
+                      <Text>মন্তব্য: </Text>
+                      <TextInput
+                        style={{ height: 50, padding: 5 }}
+                        multiline={true}
+                        numberOfLines={12}
+                        textAlignVertical="top"
+                      ></TextInput>
+                    </View>
+                  </View>
+                </Card>
+              </Card>
+
+              <Card style={{ padding: 10, margin: 10, flex: 1 }}>
+                <Card style={{ padding: 10, flex: 1 }}>
+                  <Text>
+                    ২. শিক্ষক সঠিকভাবে বর্ণ পড়া বা বর্ণ ও শব্দাংশ মিলিয়ে শব্দ
+                    পড়া শিখিয়েছেন এবং শিখাত্রিদের চর্চা করার সুযোগ দিয়েছেন ।
+                    (প্রযোজ্য ক্ষেত্রে)
+                  </Text>
+                  <Text style={{ fontWeight: "bold" }}>
+                    অগ্রাধিকার এরিয়া: ১
+                  </Text>
+                </Card>
+                <Card style={{ padding: 10, flex: 1 }}>
+                  <View style={{ flexDirection: "row" }}>
+                    <View style={{ flex: 1, padding: 2 }}>
+                      <Text>পর্যবেক্ষণ: </Text>
+                      <Picker
+                        style={{
+                          height: 40,
+                          width: 100,
+                        }}
+                        selectedValue={
+                          (this.state && this.state.option) || "yes"
+                        }
+                        onValueChange={(value) => {
+                          this.setState({ option: value });
+                        }}
+                        itemStyle={{ color: "white" }}
+                      >
+                        <Picker.Item label={"Yes"} value={"yes"} />
+                        <Picker.Item label={"No"} value={"no"} />
+                        <Picker.Item label={"Partial"} value={"partial"} />
+                      </Picker>
+                    </View>
+                    <View style={{ flex: 1, padding: 2 }}>
+                      <Text>মন্তব্য: </Text>
+                      <TextInput
+                        style={{ height: 50, padding: 5 }}
+                        multiline={true}
+                        numberOfLines={12}
+                        textAlignVertical="top"
+                      ></TextInput>
+                    </View>
+                  </View>
+                </Card>
+              </Card>
+
+              <Card style={{ padding: 10, margin: 10, flex: 1 }}>
+                <Card style={{ padding: 10, flex: 1 }}>
+                  <Text>
+                    ৩. শিক্ষক শব্দ ভাণ্ডারের শব্দগুলো অর্থসহ শিখিয়েছেন এবং
+                    শিক্ষার্থীদের শব্দগুলো ব্যবহার করে নতুন বাক্য গঠনের সুযোগ
+                    দিয়েছেন । (প্রযোজ্য ক্ষেত্রে)
+                  </Text>
+                  <Text style={{ fontWeight: "bold" }}>
+                    অগ্রাধিকার এরিয়া: ৩
+                  </Text>
+                </Card>
+                <Card style={{ padding: 10, flex: 1 }}>
+                  <View style={{ flexDirection: "row" }}>
+                    <View style={{ flex: 1, padding: 2 }}>
+                      <Text>পর্যবেক্ষণ: </Text>
+                      <Picker
+                        style={{
+                          height: 40,
+                          width: 100,
+                        }}
+                        selectedValue={
+                          (this.state && this.state.option) || "yes"
+                        }
+                        onValueChange={(value) => {
+                          this.setState({ option: value });
+                        }}
+                        itemStyle={{ color: "white" }}
+                      >
+                        <Picker.Item label={"Yes"} value={"yes"} />
+                        <Picker.Item label={"No"} value={"no"} />
+                        <Picker.Item label={"Partial"} value={"partial"} />
+                      </Picker>
+                    </View>
+                    <View style={{ flex: 1, padding: 2 }}>
+                      <Text>মন্তব্য: </Text>
+                      <TextInput
+                        style={{ height: 50, padding: 5 }}
+                        multiline={true}
+                        numberOfLines={12}
+                        textAlignVertical="top"
+                      ></TextInput>
+                    </View>
+                  </View>
+                </Card>
+              </Card>
+
               <View style={{ flexDirection: "row" }}>
                 <View style={{ flex: 1, padding: 2 }}>
                   <Text style={{ backgroundColor: "green" }}>ক্রমিক নং</Text>

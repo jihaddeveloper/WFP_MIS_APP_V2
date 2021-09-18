@@ -12,6 +12,7 @@ import {
 
 //import Navigator from "./routes/navStack";
 
+// Screen
 import BanglaClassObservationScreen from "./components/BanglaClassObservationScreen";
 import HomeScreen from "./components/HomeScreen";
 import LoginScreen from "./components/LoginScreen";
@@ -20,8 +21,27 @@ import LibraryManagementObservationScreen from "./components/LibraryManagementOb
 import LibraryReadingActivitiesObservationScreen from "./components/LibraryReadingActivitiesObservationScreen";
 import OverallSchoolObservationScreen from "./components/OverallSchoolObservationScreen";
 
+// Navigation
+// import { NavigationContainer } from "@react-navigation/native";
+// import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+// const Stack = createNativeStackNavigator();
+
 export default class App extends React.Component {
   render() {
-    return <HomeScreen />;
+    return (
+      <BanglaClassObservationScreen />
+
+      // <NavigationContainer>
+      //   <Stack.Navigator>
+      //     <Stack.Screen
+      //       name="Register"
+      //       component={RegistrationScreen}
+      //       options={{ title: "Welcome" }}
+      //     />
+      //     <Stack.Screen name="Login" component={LoginScreen} />
+      //   </Stack.Navigator>
+      // </NavigationContainer>
+    );
   }
 }
