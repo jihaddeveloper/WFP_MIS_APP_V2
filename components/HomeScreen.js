@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 17/08/2021
-//  Modify Date: 05/09/2021
+//  Modify Date: 19/09/2021
 //  Description: Home screen component
 
 import React from "react";
@@ -19,26 +19,34 @@ import {
 function HomeScreen(props) {
   return (
     <View style={styles.container}>
-      <Text
-        style={{
-          color: "blue",
-          fontWeight: "bold",
-          fontSize: 20,
-          padding: 25,
-          marginTop: 50,
-        }}
-      >
-        McGovern-Dole International Food for Education and Child Nutrition
-        Program
-      </Text>
+      <View style={{ flexShrink: 1 }}>
+        <Text
+          style={{
+            color: "blue",
+            fontWeight: "bold",
+            fontSize: 20,
+            padding: 25,
+            alignContent: "center",
+            textAlign: "center",
+            alignSelf: "center",
+            marginTop: 100,
+            marginLeft: 100,
+            marginRight: 100,
+          }}
+        >
+          McGovern-Dole International Food for Education and Child Nutrition
+          Program
+        </Text>
+      </View>
 
       <View
         style={{
           flex: 1,
           flexDirection: "row",
+          marginTop: 50,
         }}
       >
-        <View style={{ flex: 1, marginLeft: 150 }}>
+        <View style={{ flex: 1, marginLeft: 200 }}>
           <TouchableOpacity onPress={() => loadInBrowser("http://google.com")}>
             <Image
               style={styles.logoMain}
@@ -46,7 +54,7 @@ function HomeScreen(props) {
             ></Image>
           </TouchableOpacity>
         </View>
-        <View style={{ flex: 1, marginRight: 150 }}>
+        <View style={{ flex: 1, marginRight: 200 }}>
           <TouchableOpacity>
             <Image
               style={styles.logoMain}
@@ -59,31 +67,31 @@ function HomeScreen(props) {
       <View style={{ flexDirection: "row" }}>
         <View style={{ flex: 1, padding: 2, marginLeft: 40 }}>
           <View style={styles.buttonView}>
-            <Button title="Bangla Class Observation"></Button>
+            <Button title="Bangla Class"></Button>
           </View>
         </View>
         <View style={{ flex: 1, padding: 2 }}>
           <View style={styles.buttonView}>
-            <Button title="Library Management Observation"></Button>
+            <Button title="Library Management"></Button>
           </View>
         </View>
       </View>
 
-      <View style={{ flexDirection: "row" }}>
+      <View style={{ flexDirection: "row", marginBottom: 300 }}>
         <View style={{ flex: 1, padding: 2, marginLeft: 40 }}>
           <View style={styles.buttonView}>
-            <Button title="Library Reading Activities Observation"></Button>
+            <Button title="Library Reading"></Button>
           </View>
         </View>
         <View style={{ flex: 1, padding: 2 }}>
           <View style={styles.buttonView}>
-            <Button title="Overall School Observation"></Button>
+            <Button title="Overall School"></Button>
           </View>
         </View>
       </View>
 
       <View>
-        <Text>&copy; All Reserved, RoomtoRead Bangldesh</Text>
+        <Text>&copy; All Rights Reserved, RoomtoRead Bangladesh</Text>
       </View>
     </View>
   );

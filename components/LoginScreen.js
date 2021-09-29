@@ -1,3 +1,8 @@
+//  Author: Mohammad Jihad Hossain
+//  Create Date: 07/08/2021
+//  Modify Date: 19/09/2021
+//  Description: Login component
+
 import React from "react";
 import {
   StyleSheet,
@@ -16,26 +21,34 @@ export default class LoginScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text
-          style={{
-            color: "blue",
-            fontWeight: "bold",
-            fontSize: 20,
-            padding: 25,
-            marginTop: 50,
-          }}
-        >
-          McGovern-Dole International Food for Education and Child Nutrition
-          Program
-        </Text>
+        <View style={{ flexShrink: 1 }}>
+          <Text
+            style={{
+              color: "blue",
+              fontWeight: "bold",
+              fontSize: 20,
+              padding: 25,
+              alignContent: "center",
+              textAlign: "center",
+              alignSelf: "center",
+              marginTop: 100,
+              marginLeft: 100,
+              marginRight: 100,
+            }}
+          >
+            McGovern-Dole International Food for Education and Child Nutrition
+            Program
+          </Text>
+        </View>
 
         <View
           style={{
             flex: 1,
             flexDirection: "row",
+            marginTop: 50,
           }}
         >
-          <View style={{ flex: 1, marginLeft: 150 }}>
+          <View style={{ flex: 1, marginLeft: 200 }}>
             <TouchableOpacity
               onPress={() => loadInBrowser("http://google.com")}
             >
@@ -45,7 +58,7 @@ export default class LoginScreen extends React.Component {
               ></Image>
             </TouchableOpacity>
           </View>
-          <View style={{ flex: 1, marginRight: 150 }}>
+          <View style={{ flex: 1, marginRight: 200 }}>
             <TouchableOpacity>
               <Image
                 style={styles.logoMain}
@@ -78,12 +91,12 @@ export default class LoginScreen extends React.Component {
         <TouchableOpacity style={styles.loginBtn}>
           <Text style={styles.loginText}>LOGIN</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity style={{ marginBottom: 200 }}>
           <Text style={styles.forgot}>Signup</Text>
         </TouchableOpacity>
 
         <View>
-          <Text>&copy; All Reserved, RoomtoRead Bangldesh</Text>
+          <Text>&copy; All Rights Reserved, RoomtoRead Bangladesh</Text>
         </View>
       </View>
     );

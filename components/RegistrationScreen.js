@@ -1,3 +1,8 @@
+//  Author: Mohammad Jihad Hossain
+//  Create Date: 07/08/2021
+//  Modify Date: 19/09/2021
+//  Description: Register component
+
 import React from "react";
 import {
   StyleSheet,
@@ -17,28 +22,34 @@ export default class RegistrationScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text
-          style={{
-            color: "blue",
-            fontWeight: "bold",
-            fontSize: 20,
-            padding: 25,
-            marginTop: 50,
-          }}
-        >
-          McGovern-Dole International Food for Education and Child Nutrition
-          Program
-        </Text>
+        <View style={{ flexShrink: 1 }}>
+          <Text
+            style={{
+              color: "blue",
+              fontWeight: "bold",
+              fontSize: 20,
+              padding: 25,
+              alignContent: "center",
+              textAlign: "center",
+              alignSelf: "center",
+              marginTop: 50,
+              marginLeft: 100,
+              marginRight: 100,
+            }}
+          >
+            McGovern-Dole International Food for Education and Child Nutrition
+            Program
+          </Text>
+        </View>
 
         <View
           style={{
             flex: 1,
             flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "center",
+            marginBottom: 50,
           }}
         >
-          <View style={{ flex: 1, marginLeft: 150 }}>
+          <View style={{ flex: 1, marginLeft: 200 }}>
             <TouchableOpacity
               onPress={() => loadInBrowser("http://google.com")}
             >
@@ -48,7 +59,7 @@ export default class RegistrationScreen extends React.Component {
               ></Image>
             </TouchableOpacity>
           </View>
-          <View style={{ flex: 1, marginRight: 150 }}>
+          <View style={{ flex: 1, marginRight: 200 }}>
             <TouchableOpacity>
               <Image
                 style={styles.logoMain}
@@ -115,10 +126,10 @@ export default class RegistrationScreen extends React.Component {
           <Text style={styles.loginText}>Register</Text>
         </TouchableOpacity>
         <TouchableOpacity>
-          <Text style={styles.forgot}>Login</Text>
+          <Text style={(styles.forgot, { marginBottom: 30 })}>Login</Text>
         </TouchableOpacity>
         <View>
-          <Text>&copy; All Reserved, RoomtoRead Bangldesh</Text>
+          <Text>&copy; All Rights Reserved, RoomtoRead Bangladesh</Text>
         </View>
       </View>
     );

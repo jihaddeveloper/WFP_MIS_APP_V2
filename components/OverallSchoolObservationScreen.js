@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 29/08/2021
-//  Modify Date: 05/09/2021
+//  Modify Date: 19/09/2021
 //  Description: Overall school observation screen component
 
 import React from "react";
@@ -13,6 +13,7 @@ import {
   Text,
   ScrollView,
   TextInput,
+  Picker,
 } from "react-native";
 import { color } from "react-native-reanimated";
 import { Checkbox } from "react-native-paper";
@@ -25,6 +26,7 @@ import {
   Cols,
   Cell,
 } from "react-native-table-component";
+import { Card } from "react-native-shadow-cards";
 
 export default class OverallSchoolObservationScreen extends React.Component {
   state = {
@@ -37,16 +39,12 @@ export default class OverallSchoolObservationScreen extends React.Component {
       <View style={styles.container}>
         <Text
           style={{
-            color: "blue",
-            fontWeight: "bold",
             fontSize: 20,
-            padding: 25,
+            fontWeight: "bold",
+            marginTop: 100,
+            marginBottom: 50,
           }}
         >
-          McGovern-Dole International Food for Education and Child Nutrition
-          Program
-        </Text>
-        <Text style={{ fontSize: 20, fontWeight: "bold" }}>
           বিদ্যালয়ের সামগ্রিক অবস্থা পর্যবেক্ষণ ফরম (প্রতি মাসে একবার)
         </Text>
 
@@ -141,6 +139,72 @@ export default class OverallSchoolObservationScreen extends React.Component {
               >
                 নির্দেশনা
               </Text>
+
+              <Card
+                style={{ padding: 10, margin: 10, justifyContent: "center" }}
+              >
+                <Text style={{ padding: 5 }}>
+                  ১। প্রাইওরিটি এরিয়াসমুহ পর্যায়ক্রমে পর্যবেক্ষণ করেতে হবে
+                  অর্থাৎ কেবল প্রাইওরিটি এরিয়া ১ এর সকল সূচকে "হ্যাঁ" হলে
+                  প্রাইওরিটি এরিয়া ১ ও ২ এর সকল সূচকে "হ্যাঁ" হলে প্রাইওরিটি
+                  এরিয়া ৩ এর সূচকগুলা পর্যবেক্ষণ করা যাবে ।
+                </Text>
+                <Text style={{ padding: 5 }}>
+                  ২। বিদ্যালয়ের সামগ্রিক অবস্থা পর্যবেক্ষণ ২-৩ টি ভালো দিক
+                  উল্লেখ করুন ।
+                </Text>
+                <Text style={{ padding: 5 }}>
+                  ৩। প্রাইওরিটি এরিয়ার ভিত্তিতে যে ২-৩ টি ইনডিকেটরের উত্তর "না"
+                  তার আলোকে সহায়তার জন্য অগ্রাধিকারভিত্তিক ইনডিকেটর উল্লেখ করুন
+                  ।
+                </Text>
+                <Text style={{ padding: 5 }}>
+                  ৪। বিদ্যালয়ের সামগ্রিক অবস্থা সংক্রান্ত সমস্যা নিয়ে প্রধান
+                  শিক্ষকের সাথে আলোচনা করুন।
+                </Text>
+                <Text style={{ padding: 5 }}>
+                  ৫। রুমটোরিড থেকে কোনো পদক্ষেপ গ্রহণের প্রয়োজন হলে উল্লেখ করুন
+                  ।
+                </Text>
+              </Card>
+              <Card style={{ padding: 10, margin: 10 }}>
+                <Text style={{ justifyContent: "flex-end" }}>
+                  ফলো-আপ করার জন্য গত পরিদর্শন থেকে প্রাপ্ত ২-৩ টি বিষয় উল্লেখ
+                  করুন যেখানে উন্নতি প্রয়োজন ছিল ঃ
+                </Text>
+                <View style={{ flexDirection: "row" }}>
+                  <View style={{ flex: 1 }}>
+                    <View style={{ padding: 5 }}>
+                      <Text>১.</Text>
+                      <TextInput
+                        style={{ height: 50, padding: 5 }}
+                        multiline={true}
+                        numberOfLines={12}
+                        textAlignVertical="top"
+                      ></TextInput>
+                    </View>
+                    <View style={{ padding: 5 }}>
+                      <Text>২.</Text>
+                      <TextInput
+                        style={{ height: 50, padding: 5 }}
+                        multiline={true}
+                        numberOfLines={12}
+                        textAlignVertical="top"
+                      ></TextInput>
+                    </View>
+                    <View style={{ padding: 5 }}>
+                      <Text>৩.</Text>
+                      <TextInput
+                        style={{ height: 50, padding: 5 }}
+                        multiline={true}
+                        numberOfLines={12}
+                        textAlignVertical="top"
+                      ></TextInput>
+                    </View>
+                  </View>
+                </View>
+              </Card>
+
               <View style={{ flexDirection: "row", padding: 10 }}>
                 <View style={{ flex: 1 }}>
                   <Text style={{ padding: 5 }}>
@@ -203,6 +267,271 @@ export default class OverallSchoolObservationScreen extends React.Component {
 
             <View style={{ padding: 10 }}>
               <Text style={styles.bigRedText}>পর্যবেক্ষণকৃত কার্যাবলী</Text>
+
+              <View style={{ padding: 5 }}>
+                <Card style={{ padding: 5, margin: 10, flex: 1 }}>
+                  <Card style={{ padding: 5, flex: 1 }}>
+                    <Text>ক্লাস পর্যবেক্ষণ</Text>
+                  </Card>
+                  <Card style={{ padding: 5, flex: 1 }}>
+                    <View style={{ flexDirection: "row" }}>
+                      <View style={{ flex: 1, padding: 2 }}>
+                        <Text>পর্যবেক্ষণ: </Text>
+                        <Picker
+                          style={{
+                            height: 40,
+                            width: 100,
+                          }}
+                          selectedValue={
+                            (this.state && this.state.option) || "yes"
+                          }
+                          onValueChange={(value) => {
+                            this.setState({ option: value });
+                          }}
+                          itemStyle={{ color: "white" }}
+                        >
+                          <Picker.Item label={"Yes"} value={"yes"} />
+                          <Picker.Item label={"No"} value={"no"} />
+                        </Picker>
+                      </View>
+                      <View style={{ flex: 1, padding: 2 }}>
+                        <Text>শ্রেণি </Text>
+                        <Picker
+                          style={{
+                            height: 40,
+                            width: 100,
+                          }}
+                          selectedValue={
+                            (this.state && this.state.option) || "yes"
+                          }
+                          onValueChange={(value) => {
+                            this.setState({ option: value });
+                          }}
+                          itemStyle={{ color: "white" }}
+                        >
+                          <Picker.Item
+                            label={"প্রাক প্রাথমিক"}
+                            value={"pri primary"}
+                          />
+                          <Picker.Item label={"১"} value={"1"} />
+                          <Picker.Item label={"২"} value={"2"} />
+                          <Picker.Item label={"৩"} value={"3"} />
+                          <Picker.Item label={"৪"} value={"4"} />
+                          <Picker.Item label={"৫"} value={"5"} />
+                        </Picker>
+                      </View>
+                      <View style={{ flex: 1, padding: 2 }}>
+                        <Text>শিক্ষক অগ্রাধিকার </Text>
+                        <Picker
+                          style={{
+                            height: 40,
+                            width: 100,
+                          }}
+                          selectedValue={
+                            (this.state && this.state.option) || "yes"
+                          }
+                          onValueChange={(value) => {
+                            this.setState({ option: value });
+                          }}
+                          itemStyle={{ color: "white" }}
+                        >
+                          <Picker.Item label={"১"} value={"yes"} />
+                          <Picker.Item label={"২"} value={"no"} />
+                          <Picker.Item label={"৩"} value={"no"} />
+                        </Picker>
+                      </View>
+                    </View>
+                  </Card>
+                  <Card style={{ padding: 10, flex: 1 }}>
+                    <View style={{ flex: 1, padding: 2 }}>
+                      <Text>মন্তব্য: </Text>
+                      <TextInput
+                        style={{ height: 50, padding: 5 }}
+                        multiline={true}
+                        numberOfLines={12}
+                        textAlignVertical="top"
+                      ></TextInput>
+                    </View>
+                  </Card>
+                </Card>
+              </View>
+
+              <View style={{ padding: 5 }}>
+                <Card style={{ padding: 5, margin: 10, flex: 1 }}>
+                  <Card style={{ padding: 5, flex: 1 }}>
+                    <Text>বাংলা ক্লাস পর্যবেক্ষণ</Text>
+                  </Card>
+                  <Card style={{ padding: 5, flex: 1 }}>
+                    <View style={{ flexDirection: "row" }}>
+                      <View style={{ flex: 1, padding: 2 }}>
+                        <Text>পর্যবেক্ষণ: </Text>
+                        <Picker
+                          style={{
+                            height: 40,
+                            width: 100,
+                          }}
+                          selectedValue={
+                            (this.state && this.state.option) || "yes"
+                          }
+                          onValueChange={(value) => {
+                            this.setState({ option: value });
+                          }}
+                          itemStyle={{ color: "white" }}
+                        >
+                          <Picker.Item label={"Yes"} value={"yes"} />
+                          <Picker.Item label={"No"} value={"no"} />
+                        </Picker>
+                      </View>
+                      <View style={{ flex: 1, padding: 2 }}>
+                        <Text>শ্রেণি </Text>
+                        <Picker
+                          style={{
+                            height: 40,
+                            width: 100,
+                          }}
+                          selectedValue={
+                            (this.state && this.state.option) || "yes"
+                          }
+                          onValueChange={(value) => {
+                            this.setState({ option: value });
+                          }}
+                          itemStyle={{ color: "white" }}
+                        >
+                          <Picker.Item
+                            label={"প্রাক প্রাথমিক"}
+                            value={"pri primary"}
+                          />
+                          <Picker.Item label={"১"} value={"1"} />
+                          <Picker.Item label={"২"} value={"2"} />
+                          <Picker.Item label={"৩"} value={"3"} />
+                          <Picker.Item label={"৪"} value={"4"} />
+                          <Picker.Item label={"৫"} value={"5"} />
+                        </Picker>
+                      </View>
+                      <View style={{ flex: 1, padding: 2 }}>
+                        <Text>শিক্ষক অগ্রাধিকার </Text>
+                        <Picker
+                          style={{
+                            height: 40,
+                            width: 100,
+                          }}
+                          selectedValue={
+                            (this.state && this.state.option) || "yes"
+                          }
+                          onValueChange={(value) => {
+                            this.setState({ option: value });
+                          }}
+                          itemStyle={{ color: "white" }}
+                        >
+                          <Picker.Item label={"১"} value={"yes"} />
+                          <Picker.Item label={"২"} value={"no"} />
+                          <Picker.Item label={"৩"} value={"no"} />
+                        </Picker>
+                      </View>
+                    </View>
+                  </Card>
+                  <Card style={{ padding: 10, flex: 1 }}>
+                    <View style={{ flex: 1, padding: 2 }}>
+                      <Text>মন্তব্য: </Text>
+                      <TextInput
+                        style={{ height: 50, padding: 5 }}
+                        multiline={true}
+                        numberOfLines={12}
+                        textAlignVertical="top"
+                      ></TextInput>
+                    </View>
+                  </Card>
+                </Card>
+              </View>
+
+              <View style={{ padding: 5 }}>
+                <Card style={{ padding: 5, margin: 10, flex: 1 }}>
+                  <Card style={{ padding: 5, flex: 1 }}>
+                    <Text>শ্রেণি পাঠ/পড়ার ঘণ্টা পর্যবেক্ষণ</Text>
+                  </Card>
+                  <Card style={{ padding: 5, flex: 1 }}>
+                    <View style={{ flexDirection: "row" }}>
+                      <View style={{ flex: 1, padding: 2 }}>
+                        <Text>পর্যবেক্ষণ: </Text>
+                        <Picker
+                          style={{
+                            height: 40,
+                            width: 100,
+                          }}
+                          selectedValue={
+                            (this.state && this.state.option) || "yes"
+                          }
+                          onValueChange={(value) => {
+                            this.setState({ option: value });
+                          }}
+                          itemStyle={{ color: "white" }}
+                        >
+                          <Picker.Item label={"Yes"} value={"yes"} />
+                          <Picker.Item label={"No"} value={"no"} />
+                        </Picker>
+                      </View>
+                      <View style={{ flex: 1, padding: 2 }}>
+                        <Text>শ্রেণি </Text>
+                        <Picker
+                          style={{
+                            height: 40,
+                            width: 100,
+                          }}
+                          selectedValue={
+                            (this.state && this.state.option) || "yes"
+                          }
+                          onValueChange={(value) => {
+                            this.setState({ option: value });
+                          }}
+                          itemStyle={{ color: "white" }}
+                        >
+                          <Picker.Item
+                            label={"প্রাক প্রাথমিক"}
+                            value={"pri primary"}
+                          />
+                          <Picker.Item label={"১"} value={"1"} />
+                          <Picker.Item label={"২"} value={"2"} />
+                          <Picker.Item label={"৩"} value={"3"} />
+                          <Picker.Item label={"৪"} value={"4"} />
+                          <Picker.Item label={"৫"} value={"5"} />
+                        </Picker>
+                      </View>
+                      <View style={{ flex: 1, padding: 2 }}>
+                        <Text>শিক্ষক অগ্রাধিকার </Text>
+                        <Picker
+                          style={{
+                            height: 40,
+                            width: 100,
+                          }}
+                          selectedValue={
+                            (this.state && this.state.option) || "yes"
+                          }
+                          onValueChange={(value) => {
+                            this.setState({ option: value });
+                          }}
+                          itemStyle={{ color: "white" }}
+                        >
+                          <Picker.Item label={"১"} value={"yes"} />
+                          <Picker.Item label={"২"} value={"no"} />
+                          <Picker.Item label={"৩"} value={"no"} />
+                        </Picker>
+                      </View>
+                    </View>
+                  </Card>
+                  <Card style={{ padding: 10, flex: 1 }}>
+                    <View style={{ flex: 1, padding: 2 }}>
+                      <Text>মন্তব্য: </Text>
+                      <TextInput
+                        style={{ height: 50, padding: 5 }}
+                        multiline={true}
+                        numberOfLines={12}
+                        textAlignVertical="top"
+                      ></TextInput>
+                    </View>
+                  </Card>
+                </Card>
+              </View>
+
               <View style={{ padding: 5 }}>
                 <View style={{ flexDirection: "row" }}>
                   <View style={{ flex: 1, padding: 2 }}>
@@ -1547,6 +1876,11 @@ export default class OverallSchoolObservationScreen extends React.Component {
               </View>
             </View>
           </ScrollView>
+        </View>
+        <View>
+          <Text style={{ alignItems: "center", justifyContent: "center" }}>
+            &copy; All Reserved, RoomtoRead Bangldesh
+          </Text>
         </View>
       </View>
     );
