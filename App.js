@@ -30,7 +30,7 @@ import OverallSchoolObservationScreen from "./components/OverallSchoolObservatio
 export default class App extends React.Component {
   render() {
     return (
-      <BanglaClassObservationScreen />
+      <LibraryManagementObservationScreen />
 
       // <NavigationContainer>
       //   <Stack.Navigator>

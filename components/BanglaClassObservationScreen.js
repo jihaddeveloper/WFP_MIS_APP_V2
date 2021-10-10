@@ -1,6 +1,6 @@
 //  Author: Mohammad Jihad Hossain
 //  Create Date: 17/08/2021
-//  Modify Date: 29/09/2021
+//  Modify Date: 06/10/2021
 //  Description: Bangla class observation component
 
 import React from "react";
@@ -14,6 +14,8 @@ import {
   ScrollView,
   TextInput,
   Picker,
+  Button,
+  Alert,
 } from "react-native";
 import { color } from "react-native-reanimated";
 import { Checkbox } from "react-native-paper";
@@ -28,6 +30,9 @@ import {
 } from "react-native-table-component";
 import { Card } from "react-native-shadow-cards";
 import DropDownPicker from "react-native-dropdown-picker";
+import DatePicker from "react-native-datepicker";
+
+import DateTimePicker from "@react-native-community/datetimepicker";
 
 export default class BanglaClassObservationScreen extends React.Component {
   state = {
@@ -36,10 +41,44 @@ export default class BanglaClassObservationScreen extends React.Component {
     option: "yes",
 
     choosenIndex: 0,
+
+    date: new Date(),
+    mode: "date",
+    show: false,
   };
+
+  // For Datepicker
+  setDate = (event, date) => {
+    date = date || this.state.date;
+
+    this.setState({
+      show: Platform.OS === "ios" ? true : false,
+      date,
+    });
+  };
+
+  show = (mode) => {
+    this.setState({
+      show: true,
+      mode,
+    });
+  };
+
+  datepicker = () => {
+    this.show("date");
+  };
+
+  timepicker = () => {
+    this.show("time");
+  };
+  // For Datepicker
 
   render() {
     const { checked } = this.state;
+
+    // For Datepicker
+    const { show, date, mode } = this.state;
+    // For Datepicker
 
     return (
       <View style={styles.container}>
@@ -51,6 +90,10 @@ export default class BanglaClassObservationScreen extends React.Component {
               marginTop: 100,
               marginBottom: 50,
               alignContent: "center",
+              textAlign: "center",
+              alignSelf: "center",
+              marginLeft: 100,
+              marginRight: 100,
             }}
           >
             বাংলা ক্লাস পর্যবেক্ষণ ফরম
@@ -204,48 +247,78 @@ export default class BanglaClassObservationScreen extends React.Component {
                   </Picker>
                 </View>
                 <View style={{ flex: 1 }}>
-                  <View style={{ flexDirection: "row" }}>
-                    <View style={{ flex: 1 }}>
-                      <Text
-                        style={{
-                          fontSize: 16,
-                          fontWeight: "bold",
-                        }}
-                      >
-                        উপজেলা:
-                      </Text>
-                      <Picker
-                        style={{
-                          height: 40,
-                          width: 120,
-                        }}
-                        selectedValue={
-                          (this.state && this.state.option) || "yes"
-                        }
-                        onValueChange={(value) => {
-                          this.setState({ option: value });
-                        }}
-                        itemStyle={{ color: "white" }}
-                      >
-                        <Picker.Item label={"উখিয়া"} value={"Ukhiya"} />
-                        <Picker.Item label={"কুতুবদিয়া"} value={"Kutubdia"} />
-                      </Picker>
-                    </View>
-                    <View style={{ flex: 1 }}>
-                      <Text
-                        style={{
-                          fontSize: 16,
-                          fontWeight: "bold",
-                        }}
-                      >
-                        তারিখ:
-                      </Text>
-                      <TextInput
-                        placeholder="দিন/মাস/বছর"
-                        style={{ justifyContent: "flex-end" }}
-                      />
-                    </View>
-                  </View>
+                  <Text
+                    style={{
+                      fontSize: 16,
+                      fontWeight: "bold",
+                    }}
+                  >
+                    উপজেলা:
+                  </Text>
+                  <Picker
+                    style={{
+                      height: 40,
+                      width: 120,
+                    }}
+                    selectedValue={(this.state && this.state.option) || "yes"}
+                    onValueChange={(value) => {
+                      this.setState({ option: value });
+                    }}
+                    itemStyle={{ color: "white" }}
+                  >
+                    <Picker.Item label={"উখিয়া"} value={"Ukhiya"} />
+                    <Picker.Item label={"কুতুবদিয়া"} value={"Kutubdia"} />
+                  </Picker>
+                </View>
+                <View style={{ flex: 1 }}>
+                  <Text
+                    style={{
+                      fontSize: 16,
+                      fontWeight: "bold",
+                    }}
+                  >
+                    তারিখ:
+                  </Text>
+
+                  <Button onPress={this.datepicker} title="Show date picker!" />
+
+                  {/* <Button onPress={this.timepicker} title="Show time picker!" /> */}
+                  {show && (
+                    <DateTimePicker
+                      value={date}
+                      mode={mode}
+                      is24Hour={true}
+                      display="default"
+                      onChange={this.setDate}
+                    />
+                  )}
+
+                  {/* <DatePicker
+                    style={{ width: 150 }}
+                    date={this.state.date}
+                    mode="date"
+                    placeholder="select date"
+                    format="YYYY-MM-DD"
+                    minDate="2016-05-01"
+                    maxDate="2016-06-01"
+                    confirmBtnText="Confirm"
+                    cancelBtnText="Cancel"
+                    customStyles={{
+                      dateIcon: {
+                        position: "absolute",
+                        left: 0,
+                        top: 4,
+                        marginLeft: 0,
+                      },
+                      dateInput: {
+                        marginLeft: 0,
+                      },
+                      // ... You can check the source to find the other keys.
+                    }}
+                    onDateChange={(date) => {
+                      this.setState({ date: date });
+                    }}
+                  /> */}
                 </View>
               </View>
               <View style={{ flexDirection: "row", padding: 10 }}>
@@ -388,14 +461,21 @@ export default class BanglaClassObservationScreen extends React.Component {
                       >
                         ক্লাস শুরুর সময়:
                       </Text>
-                      <TextInput
-                        style={{
-                          height: 30,
-                          width: 100,
-                          padding: 5,
-                          borderWidth: 1,
-                        }}
-                      />
+                      {/* <Button
+                        onPress={this.datepicker}
+                        title="Show date picker!"
+                      /> */}
+
+                      <Button onPress={this.timepicker} title="Time picker" />
+                      {show && (
+                        <DateTimePicker
+                          value={date}
+                          mode={mode}
+                          is24Hour={true}
+                          display="default"
+                          onChange={this.setDate}
+                        />
+                      )}
                       <Text
                         style={{
                           fontSize: 16,
@@ -404,14 +484,21 @@ export default class BanglaClassObservationScreen extends React.Component {
                       >
                         ক্লাস শেষের সময়:
                       </Text>
-                      <TextInput
-                        style={{
-                          height: 30,
-                          width: 100,
-                          padding: 5,
-                          borderWidth: 1,
-                        }}
-                      />
+                      {/* <Button
+                        onPress={this.datepicker}
+                        title="Show date picker!"
+                      /> */}
+
+                      <Button onPress={this.timepicker} title="Time picker" />
+                      {show && (
+                        <DateTimePicker
+                          value={date}
+                          mode={mode}
+                          is24Hour={true}
+                          display="default"
+                          onChange={this.setDate}
+                        />
+                      )}
                     </View>
                   </View>
                 </View>
@@ -1326,11 +1413,10 @@ export default class BanglaClassObservationScreen extends React.Component {
           </View>
 
           <View style={{ padding: 10 }}>
-            <Text style={{ backgroundColor: "green" }}>
-              শ্রেণি শিক্ষকের সাথে আলোচনার জন্য গুরুত্বপূর্ণ কিছু বিষয় ঃ
-            </Text>
-
             <Card style={{ padding: 10, margin: 10, flex: 1 }}>
+              <Text style={{ backgroundColor: "green" }}>
+                শ্রেণি শিক্ষকের সাথে আলোচনার জন্য গুরুত্বপূর্ণ কিছু বিষয় ঃ
+              </Text>
               <View style={{ padding: 5 }}>
                 <View style={{ flexDirection: "row" }}>
                   <View style={{ flex: 1, padding: 2 }}>
