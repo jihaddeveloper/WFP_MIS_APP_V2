@@ -10,6 +10,10 @@ import {
   Button,
 } from "react-native";
 
+// Navigation
+// import { NavigationContainer } from "@react-navigation/native";
+// import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 //import Navigator from "./routes/navStack";
 
 // Screen
@@ -21,16 +25,12 @@ import LibraryManagementObservationScreen from "./components/LibraryManagementOb
 import LibraryReadingActivitiesObservationScreen from "./components/LibraryReadingActivitiesObservationScreen";
 import OverallSchoolObservationScreen from "./components/OverallSchoolObservationScreen";
 
-// Navigation
-// import { NavigationContainer } from "@react-navigation/native";
-// import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
-// const Stack = createNativeStackNavigator();
+//const Stack = createNativeStackNavigator();
 
 export default class App extends React.Component {
   render() {
     return (
-      <LibraryManagementObservationScreen />
+      <BanglaClassObservationScreen />
 
       // <NavigationContainer>
       //   <Stack.Navigator>

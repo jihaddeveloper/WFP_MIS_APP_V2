@@ -82,7 +82,7 @@ export default class BanglaClassObservationScreen extends React.Component {
 
     return (
       <View style={styles.container}>
-        <View style={{ flexShrink: 1 }}>
+        <View>
           <Text
             style={{
               fontSize: 24,
@@ -321,6 +321,7 @@ export default class BanglaClassObservationScreen extends React.Component {
                   /> */}
                 </View>
               </View>
+
               <View style={{ flexDirection: "row", padding: 10 }}>
                 <View style={{ flex: 1 }}>
                   <Text
